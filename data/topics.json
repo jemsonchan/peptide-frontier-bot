@@ -1,0 +1,60 @@
+{
+  "_comment": "Content-pillar bank for Peptide Frontier. The bot picks a pillar by weekday (see schedule in content_bot.py), then a subtopic not used recently. 'query' feeds the Europe PMC / PubMed grounding search.",
+  "pillars": {
+    "mechanism": {
+      "weight": 1,
+      "subtopics": [
+        {"topic": "Why retatrutide is a triple agonist (GLP-1 + GIP + glucagon) and how that differs from Ozempic/Wegovy", "query": "retatrutide triple agonist GLP-1 GIP glucagon mechanism"},
+        {"topic": "How GLP-1 receptor agonists slow gastric emptying and signal satiety in the brain", "query": "GLP-1 receptor agonist gastric emptying satiety mechanism"},
+        {"topic": "BPC-157 proposed angiogenic and tendon-healing mechanisms — and why the evidence is mostly preclinical", "query": "BPC-157 angiogenesis tendon healing mechanism preclinical"},
+        {"topic": "How GIP receptor agonism complements GLP-1 in dual agonists like tirzepatide", "query": "tirzepatide GIP GLP-1 dual agonist mechanism"},
+        {"topic": "TB-500 / thymosin beta-4 and actin regulation in tissue repair", "query": "thymosin beta-4 TB-500 actin tissue repair"},
+        {"topic": "GHK-Cu copper peptide and collagen/skin remodeling signaling", "query": "GHK-Cu copper peptide collagen skin remodeling"},
+        {"topic": "Why glucagon agonism can increase energy expenditure, not just suppress appetite", "query": "glucagon receptor agonism energy expenditure obesity"}
+      ]
+    },
+    "numeracy": {
+      "weight": 1,
+      "subtopics": [
+        {"topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations", "query": "peptide reconstitution concentration bacteriostatic water dosing"},
+        {"topic": "Why IU (units) are not milligrams, and how insulin-syringe markings mislead people", "query": "insulin syringe units milligrams peptide dosing conversion"},
+        {"topic": "How to read an insulin syringe: units on the barrel vs the volume you actually draw", "query": "insulin syringe units volume measurement"},
+        {"topic": "Milligram vs microgram errors: the 1000x mistake and why it matters", "query": "microgram milligram dosing error medication"},
+        {"topic": "Concentration = mass / volume: the one equation that prevents most dosing mistakes", "query": "drug concentration mass volume calculation"},
+        {"topic": "Bacteriostatic water vs sterile water for reconstitution, and shelf-life implications", "query": "bacteriostatic water reconstitution peptide stability"}
+      ]
+    },
+    "myth": {
+      "weight": 1,
+      "subtopics": [
+        {"topic": "Myth: 'more peptide = faster results.' Why dose-response plateaus and side effects rise", "query": "GLP-1 dose response side effects escalation"},
+        {"topic": "Myth: 'research use only' labels mean a compound is FDA-approved or safe for humans", "query": "research chemical research use only FDA unapproved peptide"},
+        {"topic": "Myth: peptides are 'natural' so they're side-effect-free", "query": "peptide adverse effects safety"},
+        {"topic": "Myth: you can trust dosing from a viral screenshot or comment thread", "query": "peptide misinformation social media dosing"},
+        {"topic": "Myth: GLP-1 muscle loss is unique to the drug rather than expected with any rapid weight loss", "query": "GLP-1 lean mass muscle loss weight loss"},
+        {"topic": "Myth: stopping a GLP-1 locks in the results", "query": "GLP-1 discontinuation weight regain"}
+      ]
+    },
+    "study": {
+      "weight": 2,
+      "subtopics": [
+        {"topic": "A recent retatrutide Phase 3 (TRIUMPH) result and its key limitation", "query": "retatrutide phase 3 TRIUMPH weight loss 2026"},
+        {"topic": "A recent trial on GLP-1 and cardiovascular or metabolic outcomes", "query": "GLP-1 cardiovascular outcomes trial 2026"},
+        {"topic": "A recent paper on GLP-1 drugs and sleep apnea or liver disease (MASH)", "query": "GLP-1 sleep apnea MASH liver 2026 trial"},
+        {"topic": "A recent study on amycretin, mazdutide, or pemvidutide (next-wave multi-pathway compounds)", "query": "amycretin mazdutide pemvidutide clinical trial 2026"},
+        {"topic": "A recent BPC-157 study — what it actually measured and in what model", "query": "BPC-157 study 2025 2026 animal human"},
+        {"topic": "A recent VK2735 (oral or injectable) metabolic candidate readout", "query": "VK2735 clinical trial obesity 2026"}
+      ]
+    },
+    "landscape": {
+      "weight": 1,
+      "subtopics": [
+        {"topic": "The 2026 obesity-drug pipeline: which readouts are still expected this year", "query": "obesity drug pipeline 2026 phase 3 readouts"},
+        {"topic": "FDA enforcement against compounded/research peptides marketed to consumers", "query": "FDA warning letters compounded peptides retatrutide semaglutide"},
+        {"topic": "Why 1 in 8 US adults now take a GLP-1 and what that means for the market", "query": "GLP-1 prevalence US adults 2026 market"},
+        {"topic": "The shift from single-target to multi-pathway peptides as the defining 2026 trend", "query": "multi-pathway peptide obesity trend 2026"},
+        {"topic": "Compounding pharmacy landscape after semaglutide/tirzepatide shortages ended", "query": "compounded semaglutide tirzepatide shortage end FDA"}
+      ]
+    }
+  }
+}

@@ -178,15 +178,21 @@ def draft_with_gemini(system_prompt, user_prompt):
     if not key:
         return None
     try:
-        import google.generativeai as genai
-        genai.configure(api_key=key)
-        model = genai.GenerativeModel(
-            os.getenv("GEMINI_MODEL", "gemini-2.5-flash"),
-            system_instruction=system_prompt,
-        )
-        resp = model.generate_content(
-            user_prompt,
-            generation_config={"temperature": 0.8, "max_output_tokens": 200},
+        # New google-genai SDK (the old google.generativeai is end-of-life).
+        from google import genai
+        from google.genai import types
+        client = genai.Client(api_key=key)
+        resp = client.models.generate_content(
+            model=os.getenv("GEMINI_MODEL", "gemini-2.5-flash"),
+            contents=user_prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=system_prompt,
+                temperature=0.9,
+                max_output_tokens=400,
+                # gemini-2.5-flash is a thinking model; thinking tokens would
+                # otherwise eat the output budget and truncate the post.
+                thinking_config=types.ThinkingConfig(thinking_budget=0),
+            ),
         )
         return (resp.text or "").strip()
     except Exception as e:
@@ -393,13 +399,4 @@ def main():
     ap.add_argument("--pillar", choices=list(PILLAR_BY_WEEKDAY.values()) + [None], default=None,
                     help="override the weekday pillar (mechanism/numeracy/study/myth/landscape)")
     ap.add_argument("--dry-run", action="store_true", help="generate + validate but do not post")
-    ap.add_argument("--source-url", default="", help="optional URL posted as a reply (not in the body)")
-    args = ap.parse_args()
-
-    log.info("Peptide Frontier bot starting | pillar=%s dry_run=%s", args.pillar, args.dry_run)
-    ok = run(pillar=args.pillar, dry_run=args.dry_run, source_url=args.source_url)
-    sys.exit(0 if ok else 1)
-
-
-if __name__ == "__main__":
-    main()
+    ap.add_

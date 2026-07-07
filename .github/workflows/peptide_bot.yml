@@ -1,0 +1,68 @@
+# ============================================================
+# Peptide Frontier — daily content bot (GitHub Actions, free)
+# ============================================================
+# One quality post per day at 14:00 UTC (~9am ET / 10am peak US engagement window).
+# The job commits data/posted_history.json back to the repo so dedupe persists.
+#
+# Secrets to add: Settings -> Secrets and variables -> Actions
+#   GEMINI_API_KEY
+#   PF_X_API_KEY, PF_X_API_SECRET, PF_X_ACCESS_TOKEN, PF_X_ACCESS_SECRET
+#   NOSTR_NSEC (optional)
+# ============================================================
+
+name: Peptide Frontier Daily Post
+
+on:
+  schedule:
+    - cron: '0 14 * * *'      # 14:00 UTC daily
+  workflow_dispatch:
+    inputs:
+      pillar:
+        description: 'Override pillar (blank = by weekday)'
+        required: false
+        default: ''
+        type: choice
+        options: ['', mechanism, numeracy, study, myth, landscape]
+      dry_run:
+        description: 'Dry run (generate, do not post)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write            # needed to commit updated history
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+
+      - name: Generate and post
+        env:
+          LLM_PROVIDER: gemini
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PF_X_API_KEY: ${{ secrets.PF_X_API_KEY }}
+          PF_X_API_SECRET: ${{ secrets.PF_X_API_SECRET }}
+          PF_X_ACCESS_TOKEN: ${{ secrets.PF_X_ACCESS_TOKEN }}
+          PF_X_ACCESS_SECRET: ${{ secrets.PF_X_ACCESS_SECRET }}
+          NOSTR_NSEC: ${{ secrets.NOSTR_NSEC }}
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.pillar }}" ]; then ARGS="$ARGS --pillar ${{ github.event.inputs.pillar }}"; fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          python content_bot.py $ARGS
+
+      - name: Commit updated history
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          git config user.name "peptide-frontier-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/posted_history.json
+          git commit -m "chore: log daily post [skip ci]" || echo "nothing to commit"
+          git push

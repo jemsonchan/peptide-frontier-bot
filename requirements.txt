@@ -5,4 +5,4 @@ google-genai>=1.0.0
 # optional alternate writer:
 # openai>=1.40.0
 # optional 2nd channel (free, censorship-resistant):
-# basic-nostr>=1.0.0
+basic-nostr>=1.0.0

@@ -1,0 +1,29 @@
+# =======================================================
+# Nostr Bridge — one-off workflow to post @PeptideFrontier
+# X thread to Nostr as threaded notes, tagging Leon.
+# Trigger manually via Actions > Run workflow.
+# =======================================================
+
+name: Nostr Bridge
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install basic-nostr>=1.0.0
+
+      - name: Bridge posts to Nostr
+        env:
+          NOSTR_NSEC: ${{ secrets.NOSTR_NSEC }}
+        run: python nostr_bridge.py

@@ -399,4 +399,13 @@ def main():
     ap.add_argument("--pillar", choices=list(PILLAR_BY_WEEKDAY.values()) + [None], default=None,
                     help="override the weekday pillar (mechanism/numeracy/study/myth/landscape)")
     ap.add_argument("--dry-run", action="store_true", help="generate + validate but do not post")
-    ap.add_
+    ap.add_argument("--source-url", default="", help="optional URL posted as a reply (not in the body)")
+    args = ap.parse_args()
+
+    log.info("Peptide Frontier bot starting | pillar=%s dry_run=%s", args.pillar, args.dry_run)
+    ok = run(pillar=args.pillar, dry_run=args.dry_run, source_url=args.source_url)
+    sys.exit(0 if ok else 1)
+
+
+if __name__ == "__main__":
+    main()

@@ -772,3 +772,46 @@ def test_second_commenter_on_a_thread_gets_answered(tmp_path, ledger, scripted):
     Engine(cfg, FakeX(ledger, mentions=[m1, m2]), ledger, queue=queue, channels=[]).run()
     targets = {d.target_id for d in queue.drafts}
     assert targets == {"m1", "m2"}
+
+
+@pytest.mark.parametrize("text,ok", [
+    ("@jakubflow Nothings beats eggs", False),
+    ("@CoachDanGo Not good", False),
+    ("Full guide: https://t.co/DDn8mIZPNH", False),
+    ("Peptide Researchers be like https://t.co/5xNuE167aJ", False),
+    ("", False),
+    ("Viking's oral VK2735 showed a 13.1% weight loss at 12 weeks in a Phase 1 trial "
+     "(2026). This dual GLP-1/GIP agonist's oral form expands options.", True),
+    ("FDA advisory committee voted 8-6 to keep BPC-157 on the compounding list for "
+     "ulcerative colitis, overriding FDA staff.", True),
+])
+def test_only_standalone_worthy_posts_are_bridged(text, ok):
+    """
+    From the first reconcile dry run: it offered to republish reply fragments
+    and bare t.co links to Nostr, where they have no parent and no meaning.
+    """
+    from pf_autorespond.publisher import worth_bridging
+
+    assert worth_bridging(text)[0] is ok
+
+
+def test_reconcile_reports_what_it_declined(tmp_path, monkeypatch):
+    from pf_autorespond import nostr as nostr_mod
+    from pf_autorespond.publisher import reconcile_nostr
+
+    monkeypatch.delenv("NOSTR_NSEC", raising=False)
+    monkeypatch.delenv("NOSTR_BUNKER_URI", raising=False)
+    monkeypatch.setattr(nostr_mod, "fetch_own_notes", lambda relays, pk, limit=100: [])
+
+    client = FakeX(Ledger.load(tmp_path / "l.json"))
+    client._own = [
+        make_post(id="good", text=X_POSTS[1][1], created_at="2026-07-29T15:53:00Z"),
+        make_post(id="reply", text="@someone Not good", created_at="2026-07-17T11:29:00Z"),
+        make_post(id="link", text="Full guide: https://t.co/abc", created_at="2026-07-10T13:22:00Z"),
+    ]
+    report = PublishReport()
+    gaps = reconcile_nostr(_nostr_cfg(tmp_path), client, client.ledger, report,
+                           pubkey=nostr_mod.NostrKey(SK).npub, live=False)
+
+    assert [g.x_id for g in gaps] == ["good"]
+    assert report.nostr[0]["not_worth_bridging"] == 2

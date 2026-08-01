@@ -1,0 +1,125 @@
+# ⚠️  SCHEDULES ARE DISABLED ON PURPOSE.
+# This repo was still PUBLIC when the auto-responder was added, and these
+# workflows commit state/ledger.json, state/queue.json and every rejected
+# draft back to the repo. Running them while public would publish all of it.
+#
+# TO ENABLE, IN THIS ORDER:
+#   1. Settings -> Danger Zone -> Change visibility -> private
+#      (GitHub asks for your account password; that step is yours alone)
+#   2. Uncomment the `schedule:` block below
+# Until then everything still works via Actions -> Run workflow.
+name: autorespond · auto-respond
+
+# Four passes a day at irregular minutes. Two reasons not to use :00 --
+# every cron bot on GitHub fires on the hour so runners queue, and a strictly
+# periodic posting fingerprint is the easiest automation tell there is.
+on:
+  # schedule:
+  #  - cron: "17 8 * * *"    # 08:17 UTC
+  #  - cron: "43 12 * * *"   # 12:43 UTC
+  #  - cron: "09 17 * * *"   # 17:09 UTC
+  #  - cron: "31 21 * * *"   # 21:31 UTC
+  workflow_dispatch:
+    inputs:
+      live:
+        description: "Publish for real (otherwise dry-run)"
+        type: boolean
+        default: false
+      max_actions:
+        description: "Max actions this run"
+        type: string
+        default: "2"
+
+concurrency:
+  # Two runs writing state/ledger.json at once would lose spend and blow the
+  # budget. Never cancel in-progress -- a cancelled run can publish without
+  # recording the cost.
+  group: pf-state
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # commit the ledger + queue back
+  issues: write    # open one approval issue per draft
+
+jobs:
+  respond:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements-autorespond.txt
+
+      - name: Show cost model
+        run: python -m pf_autorespond.cli estimate
+        env:
+          PYTHONPATH: src
+
+      - name: Run
+        id: run
+        env:
+          PYTHONPATH: src
+          X_CONSUMER_KEY: ${{ secrets.PF_X_API_KEY }}
+          X_CONSUMER_SECRET: ${{ secrets.PF_X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.PF_X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.PF_X_ACCESS_SECRET }}
+          LLM_PROVIDER: openai
+          LLM_BASE_URL: https://generativelanguage.googleapis.com/v1beta/openai
+          LLM_MODEL: ${{ vars.LLM_MODEL || 'gemini-2.5-flash' }}
+          # 2.5-flash reasons first; reasoning comes out of max_tokens.
+          LLM_MAX_TOKENS: '2000'
+          LLM_REASONING_EFFORT: none
+          LLM_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PF_APPROVER: ${{ vars.PF_APPROVER || github.repository_owner }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # review = draft and ask you. auto = publish immediately.
+          PF_MODE: ${{ vars.PF_MODE || 'review' }}
+          # Default to dry-run. Set repo variable PF_LIVE=1 to go live, so
+          # going live is a deliberate, auditable change and not a typo.
+          PF_DRY_RUN: ${{ (github.event.inputs.live == 'true' || vars.PF_LIVE == '1') && '0' || '1' }}
+          PF_MAX_ACTIONS: ${{ github.event.inputs.max_actions || '2' }}
+        run: python -m pf_autorespond.cli run | tee /tmp/report.json
+
+      - name: Commit ledger
+        if: always()
+        run: |
+          git config user.name  "pf-autorespond[bot]"
+          git config user.email "pf-autorespond@users.noreply.github.com"
+          git add state/ || true
+          if git diff --cached --quiet; then
+            echo "no ledger change"
+          else
+            git commit -m "ledger: $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+            # Another run may have pushed while we worked; rebase rather than
+            # force, so no spend record is ever overwritten.
+            git pull --rebase --autostash origin ${{ github.ref_name }} || true
+            git push
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### auto-respond"
+            echo '```json'
+            head -c 6000 /tmp/report.json 2>/dev/null || echo "(no report)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-${{ github.run_id }}
+          path: |
+            /tmp/report.json
+            state/actions.log
+          retention-days: 14

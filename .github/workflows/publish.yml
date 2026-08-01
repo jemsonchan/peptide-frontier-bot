@@ -1,0 +1,99 @@
+# ⚠️  SCHEDULES ARE DISABLED ON PURPOSE.
+# This repo was still PUBLIC when the auto-responder was added, and these
+# workflows commit state/ledger.json, state/queue.json and every rejected
+# draft back to the repo. Running them while public would publish all of it.
+#
+# TO ENABLE, IN THIS ORDER:
+#   1. Settings -> Danger Zone -> Change visibility -> private
+#      (GitHub asks for your account password; that step is yours alone)
+#   2. Uncomment the `schedule:` block below
+# Until then everything still works via Actions -> Run workflow.
+name: autorespond · publish-approved
+
+# Polls your approvals and publishes what you said yes to. This is the ONLY
+# workflow that spends X credits on writes -- autorespond.yml just drafts.
+#
+# 20-minute cadence is a deliberate trade: it bounds approval-to-publish, and
+# it also gives you a window to change your mind. A reject arriving after an
+# approve still wins (see publisher.PRECEDENCE).
+on:
+  # schedule:
+  #  - cron: "*/20 * * * *"
+  # React immediately when you decide on GitHub, instead of waiting for cron.
+  issues:
+    types: [closed, labeled]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+
+concurrency:
+  # Must not overlap with the drafting workflow: both write state/.
+  group: pf-state
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Ignore comments from anyone but you, and ignore the bot's own comments,
+    # or every "published" note would retrigger this workflow.
+    if: >-
+      github.event_name != 'issue_comment' ||
+      (github.event.comment.user.login == github.repository_owner &&
+       !contains(github.event.comment.body, 'pf-autorespond[bot]'))
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-autorespond.txt
+
+      - name: Poll approvals and publish
+        env:
+          PYTHONPATH: src
+          X_CONSUMER_KEY: ${{ secrets.PF_X_API_KEY }}
+          X_CONSUMER_SECRET: ${{ secrets.PF_X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.PF_X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.PF_X_ACCESS_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PF_APPROVER: ${{ vars.PF_APPROVER || github.repository_owner }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PF_DRY_RUN: ${{ vars.PF_LIVE == '1' && '0' || '1' }}
+          # Nostr costs nothing and has no ranker, so it publishes even
+          # when the X budget stopped us. Unset it to disable entirely.
+          # Preferred: a revocable bunker connection. Your nsec stays on
+          # your device. NOSTR_NSEC is the fallback if you'd rather not.
+          NOSTR_BUNKER_URI: ${{ secrets.NOSTR_BUNKER_URI }}
+          NOSTR_NSEC: ${{ secrets.NOSTR_NSEC }}
+        run: python -m pf_autorespond.cli publish | tee /tmp/publish.json
+
+      - name: Commit state
+        if: always()
+        run: |
+          git config user.name  "pf-autorespond[bot]"
+          git config user.email "pf-autorespond@users.noreply.github.com"
+          git add state/ || true
+          if git diff --cached --quiet; then
+            echo "no state change"
+          else
+            git commit -m "publish: $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+            git pull --rebase --autostash origin ${{ github.ref_name }} || true
+            git push
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### publish-approved"
+            echo '```json'
+            head -c 5000 /tmp/publish.json 2>/dev/null || echo "(no report)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

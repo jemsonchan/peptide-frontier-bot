@@ -1,0 +1,96 @@
+# ⚠️  SCHEDULES ARE DISABLED ON PURPOSE.
+# This repo was still PUBLIC when the auto-responder was added, and these
+# workflows commit state/ledger.json, state/queue.json and every rejected
+# draft back to the repo. Running them while public would publish all of it.
+#
+# TO ENABLE, IN THIS ORDER:
+#   1. Settings -> Danger Zone -> Change visibility -> private
+#      (GitHub asks for your account password; that step is yours alone)
+#   2. Uncomment the `schedule:` block below
+# Until then everything still works via Actions -> Run workflow.
+name: autorespond · watch-changes
+
+# Weekly diff of the things that decide how this account performs and what it
+# costs. Opens an issue ONLY when something actually changed -- a watcher that
+# pings every week gets muted, and then you miss the week that mattered.
+on:
+  # schedule:
+  #  - cron: "23 9 * * 1"    # Mondays 09:23 UTC
+  workflow_dispatch:
+    inputs:
+      announce_baseline:
+        description: "Report even on first run"
+        type: boolean
+        default: false
+
+concurrency:
+  group: pf-watch
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-autorespond.txt
+
+      - name: Diff sources
+        env:
+          PYTHONPATH: src
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PF_APPROVER: ${{ vars.PF_APPROVER || github.repository_owner }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python -m pf_autorespond.cli watch --notify \
+            ${{ github.event.inputs.announce_baseline == 'true' && '--announce-baseline' || '' }} \
+            | tee /tmp/watch.md
+
+      - name: Reconcile Nostr bridge gaps
+        continue-on-error: true    # a relay outage must not fail the watcher
+        env:
+          PYTHONPATH: src
+          X_CONSUMER_KEY: ${{ secrets.PF_X_API_KEY }}
+          X_CONSUMER_SECRET: ${{ secrets.PF_X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.PF_X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.PF_X_ACCESS_SECRET }}
+          NOSTR_BUNKER_URI: ${{ secrets.NOSTR_BUNKER_URI }}
+          NOSTR_NSEC: ${{ secrets.NOSTR_NSEC }}
+        # ~20 owned reads at $0.001 = $0.02/week = $0.09/month.
+        # Set repo variable NOSTR_RECONCILE_LIVE=1 to republish rather than report.
+        run: |
+          python -m pf_autorespond.cli nostr reconcile --limit 20 \
+            ${{ vars.NOSTR_RECONCILE_LIVE == '1' && '--live' || '' }} \
+            | tee -a /tmp/watch.md
+
+      - name: Commit snapshots
+        if: always()
+        run: |
+          git config user.name  "pf-autorespond[bot]"
+          git config user.email "pf-autorespond@users.noreply.github.com"
+          git add state/ || true
+          if git diff --cached --quiet; then
+            echo "no snapshot change"
+          else
+            git commit -m "watch: $(date -u +%Y-%m-%d) [skip ci]"
+            git pull --rebase --autostash origin ${{ github.ref_name }} || true
+            git push
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### watch-changes"
+            cat /tmp/watch.md 2>/dev/null || echo "(nothing)"
+          } >> "$GITHUB_STEP_SUMMARY"

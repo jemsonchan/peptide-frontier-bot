@@ -67,10 +67,13 @@ jobs:
           NOSTR_BUNKER_URI: ${{ secrets.NOSTR_BUNKER_URI }}
           NOSTR_NSEC: ${{ secrets.NOSTR_NSEC }}
         # ~20 owned reads at $0.001 = $0.02/week = $0.09/month.
-        # Set repo variable NOSTR_RECONCILE_LIVE=1 to republish rather than report.
+        # Republishes by default. Set repo variable NOSTR_RECONCILE_LIVE=0 to
+        # drop back to reporting only. Safe to leave on: reconcile is
+        # idempotent (the event map stops it re-posting) and it refuses reply
+        # fragments and bare links outright.
         run: |
           python -m pf_autorespond.cli nostr reconcile --limit 20 \
-            ${{ vars.NOSTR_RECONCILE_LIVE == '1' && '--live' || '' }} \
+            ${{ vars.NOSTR_RECONCILE_LIVE == '0' && ' ' || '--live' }} \
             | tee -a /tmp/watch.md
 
       - name: Commit snapshots

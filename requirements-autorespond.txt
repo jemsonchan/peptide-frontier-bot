@@ -1,0 +1,6 @@
+requests>=2.32.0
+requests-oauthlib>=2.0.0
+coincurve>=20.0.0        # libsecp256k1 bindings, BIP-340 schnorr for nostr
+websocket-client>=1.8.0  # synchronous relay IO; right shape for a cron job
+cryptography>=43.0.0     # ChaCha20/HKDF/HMAC for NIP-44, AES for NIP-04 fallback
+PyYAML>=6.0.2

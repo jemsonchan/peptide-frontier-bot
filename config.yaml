@@ -1,0 +1,105 @@
+# Peptide Frontier auto-responder
+#
+# Every number here is a dollar amount in disguise. Run
+#   python -m pf_autorespond.cli estimate
+# after any change -- it prints the monthly burn and refuses to lie to you.
+
+budget:
+  monthly_usd: "6.00"   # your current credit balance
+  daily_usd: "0.19"     # worst-case day; dedup means the real figure is lower
+  reserve_usd: "0.30"   # stop acting with this much left, so you top up by choice
+
+# Per-day caps. These bind before the budget does, on purpose: the account
+# should look like a careful participant, not a bot with a wallet.
+quotas:
+  reply: 5              # 5 x $0.015 = $0.075  (4 compete + 1 reserved outbound)
+  quote: 1              # 1 x $0.015 = $0.015
+  post: 1               # your existing daily post, same wallet
+  like: 0               # $0.015 for the weakest ranker signal. Leave at 0.
+  read_list_posts: 1    # 1 list read/day x 10 posts x $0.005 = $0.050
+  read_search: 1        # fallback only, when the list is dry
+
+harvest:
+  # Trimmed from 8/5/10 to fit 5 replies/day inside $6 worst-case.
+  # Dedup means these rarely bill at the cap anyway -- only NEW mentions
+  # cost anything, and you don't get 24 new ones a day.
+  mentions_max: 6       # owned read, $0.001 each -- the cheapest thing you buy
+  own_posts_max: 4      # owned read; gives the model what WE said in the thread
+  list_id: ""           # <-- CREATE A PRIVATE X LIST OF 20-40 ACCOUNTS, PASTE ID
+  list_posts_max: 9       # each post costs $0.005. The biggest single knob.
+  search_max: 10
+  search_queries:
+    # Fallback discovery. -is:retweet -is:reply keeps us on original posts;
+    # -has:links avoids threads whose whole point is an off-platform click.
+    - '(retatrutide OR tirzepatide OR semaglutide) (trial OR "phase 3" OR data) -is:retweet -is:reply lang:en'
+    - '("BPC-157" OR "TB-500" OR ipamorelin) -is:retweet -is:reply lang:en'
+    - '(GLP-1 OR incretin) (study OR "n=" OR endpoint) -is:retweet -is:reply lang:en'
+
+selection:
+  min_score_mention: 0.8      # low bar: answering your own commenters is cheap and works
+  min_score_outsider: 2.2     # high bar: cold replies must clearly earn the $0.015
+  min_score_quote: 2.6
+  min_followers_outsider: 500
+  author_cooldown_hours: 72   # never hit the same account twice in 3 days
+  # Hold a slot for a stranger's post even when your own backlog outranks it.
+  # Replying to your commenters is retention; replying to strangers is reach.
+  reserved_outbound_per_day: 1
+  # Answer both commenters on a thread, but hours apart. Two replies in one
+  # 20-minute window is the machine-shaped pattern people actually notice.
+  max_replies_per_conversation: 2
+  conversation_gap_hours: 3.0
+  max_age_hours: 24           # the ranker's AgeFilter drops old posts anyway
+  freshness_half_life: 4.0    # cold outbound decays with the feed
+  # Replies on YOUR posts reach their author by notification, which never
+  # expires. Decaying them like feed content let strangers outrank your own
+  # unanswered commenters. Found in rehearsal, 2026-08-01.
+  mention_half_life: 36.0
+  mention_max_age_hours: 96
+
+dry_run: true                 # flip via PF_DRY_RUN=0 in the workflow when ready
+max_actions_per_run: 2        # 4 runs/day x 2 = 8 ceiling, quotas cut it to ~4
+use_critic: true              # second LLM pass; catches invented citations
+max_regenerations: 1
+
+state_path: "state/ledger.json"
+log_path: "state/actions.log"
+
+# Pause between two published actions in one run. Two replies in the same
+# second is the loudest automation tell there is.
+gap_seconds_min: 20
+gap_seconds_max: 70
+
+# ---------------------------------------------------------------- approvals
+# "review": draft, notify you, publish only on approval. Nothing is billed
+#           until you say yes, so review mode is CHEAPER than auto, not dearer.
+# "auto":   publish immediately, no human in the loop.
+mode: "review"
+approval_ttl_hours: 12    # after this the target has aged out; not worth $0.015
+max_publish_per_run: 3
+queue_path: "state/queue.json"
+
+# -------------------------------------------------------------------- nostr
+# No per-action cost, no ranking algorithm. Everything that forces restraint
+# on X is absent here, so approved drafts mirror across unconditionally.
+nostr:
+  enabled: true
+  # Measured against your npub on 2026-08-01, not guessed:
+  #   nos.lol        3/3 of your notes   <- your bridge writes here
+  #   nostr.mom      3/3                 <- and here
+  #   primal.net     1/3                 partial propagation
+  #   damus.io       0/3                 biggest relay, your bridge misses it
+  #   snort.social   0/3
+  #   purplepag.es   0/3
+  # Publishing to damus + snort is the single biggest reach win available,
+  # and it costs nothing.
+  relays:
+    - "wss://nos.lol"            # confirmed carrying your notes
+    - "wss://nostr.mom"          # confirmed carrying your notes
+    - "wss://relay.primal.net"   # partial today; worth writing to directly
+    - "wss://relay.damus.io"     # currently has none of your posts
+    - "wss://relay.snort.social" # currently has none of your posts
+    - "wss://relay.nostr.band"   # indexer — good for search/discovery
+  mirror_when_x_blocked: true   # a good reply shouldn't die because the wallet is empty
+  include_outsider_replies: false  # their parent doesn't exist on nostr; reads as a non-sequitur
+  thread_replies: true
+  map_path: "state/nostr_map.json"

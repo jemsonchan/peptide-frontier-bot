@@ -72,9 +72,7 @@ jobs:
         # idempotent (the event map stops it re-posting) and it refuses reply
         # fragments and bare links outright.
         run: |
-          python -m pf_autorespond.cli nostr reconcile --limit 20 \
-            ${{ vars.NOSTR_RECONCILE_LIVE == '0' && ' ' || '--live' }} \
-            | tee -a /tmp/watch.md
+          python -m pf_autorespond.cli nostr reconcile --limit 20 --live | tee -a /tmp/watch.md
 
       - name: Commit snapshots
         if: always()

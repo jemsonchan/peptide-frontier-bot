@@ -283,6 +283,28 @@ def backfill_map(cfg, queue: Queue, pubkey: str = "", limit: int = 50) -> tuple[
     return found, len(notes)
 
 
+def worth_bridging(text: str, min_words: int = 8) -> tuple[bool, str]:
+    """
+    Is this X post worth existing as a standalone Nostr note?
+
+    Learned from the first live-ish reconcile, which offered to republish
+    "@CoachDanGo Not good" and "Full guide: https://t.co/DDn8mIZPNH". On X
+    those make sense in a thread; on Nostr they are noise with your name on it.
+    """
+    import re
+
+    t = (text or "").strip()
+    if t.startswith("@"):
+        return False, "reply fragment (starts with a handle)"
+    # strip t.co and other links, then see if anything substantive is left
+    stripped = re.sub(r"https?://\S+", "", t).strip()
+    if len(stripped.split()) < min_words:
+        return False, f"only {len(stripped.split())} words once links are removed"
+    if not stripped:
+        return False, "nothing but a link"
+    return True, ""
+
+
 @dataclass
 class Gap:
     """An X post that never made it to Nostr."""
@@ -306,14 +328,19 @@ def find_gaps(
     absent from our map costs nothing to relink, and relinking it means future
     replies thread onto it instead of floating loose.
 
-    Returns (gaps, repaired).
+    Returns (gaps, repaired, skipped).
     """
     from datetime import datetime, timezone
 
     gaps: list[Gap] = []
     repaired = 0
+    skipped: list[tuple[str, str]] = []
     for p in x_posts:
         if emap.get(p.id):
+            continue
+        ok, why = worth_bridging(p.text)
+        if not ok:
+            skipped.append((p.id, why))
             continue
         match = nostr_mod.match_by_content(notes, p.text, threshold=threshold)
         if match:
@@ -328,7 +355,7 @@ def find_gaps(
             except ValueError:
                 ts = 0
         gaps.append(Gap(x_id=p.id, text=p.text, created_at=ts))
-    return gaps, repaired
+    return gaps, repaired, skipped
 
 
 def reconcile_nostr(
@@ -380,7 +407,7 @@ def reconcile_nostr(
         pk = key.pubkey_hex
 
     notes = nostr_mod.fetch_own_notes(relays, pk, limit=100)
-    gaps, repaired = find_gaps(x_posts, notes, emap)
+    gaps, repaired, skipped = find_gaps(x_posts, notes, emap)
     emap.save()
 
     report.nostr.append(
@@ -391,6 +418,8 @@ def reconcile_nostr(
             "already_bridged": len(x_posts) - len(gaps) - repaired,
             "map_repaired": repaired,
             "gaps": len(gaps),
+            "not_worth_bridging": len(skipped),
+            "skipped_detail": skipped[:10],
             "live": live,
         }
     )

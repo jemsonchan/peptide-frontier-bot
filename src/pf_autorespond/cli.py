@@ -375,6 +375,9 @@ def cmd_nostr(args) -> int:
         print(f"Nostr notes found : {head.get('nostr_notes', 0)}")
         print(f"already bridged   : {head.get('already_bridged', 0)}")
         print(f"map repaired      : {head.get('map_repaired', 0)}  (free)")
+        print(f"not worth bridging: {head.get('not_worth_bridging', 0)}  (replies, bare links, fragments)")
+        for pid, why in head.get("skipped_detail", []):
+            print(f"    - {pid}: {why}")
         print(f"gaps              : {len(gaps)}")
         if gaps:
             import datetime

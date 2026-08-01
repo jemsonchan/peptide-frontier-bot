@@ -168,7 +168,9 @@ class XClient:
         params = {
             "max_results": max(5, min(max_results, 100)),
             "tweet.fields": "created_at,conversation_id,referenced_tweets,lang,public_metrics",
-            "exclude": "retweets",
+            # Replies belong to a conversation. Mirrored standalone they read
+            # as fragments ("@someone Not good"), so keep them out entirely.
+            "exclude": "retweets,replies",
         }
         data = self._request("GET", f"/users/{user_id}/tweets", params=params)
         posts = _parse_posts(data)

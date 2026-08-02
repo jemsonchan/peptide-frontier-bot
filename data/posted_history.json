@@ -41,6 +41,13 @@
       "topic": "The 2026 obesity-drug pipeline: which readouts are still expected this year",
       "text": "The 2026 obesity drug pipeline has no major readouts expected this year. Most GLP-1/GIP/Gcg trials are longer-term, with data anticipated in 2026 or beyond. Patience is key as trials complete.",
       "tweet_id": "2083569936983617596"
+    },
+    {
+      "date": "2026-08-02T15:07:26Z",
+      "pillar": "numeracy",
+      "topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations",
+      "text": "Reconstitution math isn't just \"add water.\" A 10 mg vial in 1 mL BAC water is 10 mg/mL. The *same* 10 mg vial in 3 mL BAC water is 3.33 mg/mL. Always check your final concentration: mass ÷ volume.",
+      "tweet_id": "2083932683298918768"
     }
   ]
 }

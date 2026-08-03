@@ -48,6 +48,13 @@
       "topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations",
       "text": "Reconstitution math isn't just \"add water.\" A 10 mg vial in 1 mL BAC water is 10 mg/mL. The *same* 10 mg vial in 3 mL BAC water is 3.33 mg/mL. Always check your final concentration: mass ÷ volume.",
       "tweet_id": "2083932683298918768"
+    },
+    {
+      "date": "2026-08-03T16:30:43Z",
+      "pillar": "mechanism",
+      "topic": "How GLP-1 receptor agonists slow gastric emptying and signal satiety in the brain",
+      "text": "GLP-1 agonists slow gastric emptying, increasing satiety. This delays glucose absorption, moderating post-meal blood sugar. In the brain, they act on the hypothalamus, signaling fullness directly. It's a dual gut-brain mechanism for appetite regulation.",
+      "tweet_id": "2084316032701780019"
     }
   ]
 }

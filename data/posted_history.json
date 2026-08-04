@@ -55,6 +55,13 @@
       "topic": "How GLP-1 receptor agonists slow gastric emptying and signal satiety in the brain",
       "text": "GLP-1 agonists slow gastric emptying, increasing satiety. This delays glucose absorption, moderating post-meal blood sugar. In the brain, they act on the hypothalamus, signaling fullness directly. It's a dual gut-brain mechanism for appetite regulation.",
       "tweet_id": "2084316032701780019"
+    },
+    {
+      "date": "2026-08-04T16:15:50Z",
+      "pillar": "numeracy",
+      "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
+      "text": "1000x error: 1 mg ≠ 1 µg. Milligrams (mg) are 1000 times larger than micrograms (µg). Confusing these units can lead to severe dosing errors. Always double-check your compound's specified units to avoid a critical mistake.",
+      "tweet_id": "2084674672554041746"
     }
   ]
 }

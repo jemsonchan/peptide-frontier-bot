@@ -1,24 +1,14 @@
-# ⚠️  SCHEDULES ARE DISABLED ON PURPOSE.
-# This repo was still PUBLIC when the auto-responder was added, and these
-# workflows commit state/ledger.json, state/queue.json and every rejected
-# draft back to the repo. Running them while public would publish all of it.
-#
-# TO ENABLE, IN THIS ORDER:
-#   1. Settings -> Danger Zone -> Change visibility -> private
-#      (GitHub asks for your account password; that step is yours alone)
-#   2. Uncomment the `schedule:` block below
-# Until then everything still works via Actions -> Run workflow.
 name: autorespond · auto-respond
 
 # Four passes a day at irregular minutes. Two reasons not to use :00 --
 # every cron bot on GitHub fires on the hour so runners queue, and a strictly
 # periodic posting fingerprint is the easiest automation tell there is.
 on:
-  # schedule:
-  #  - cron: "17 8 * * *"    # 08:17 UTC
-  #  - cron: "43 12 * * *"   # 12:43 UTC
-  #  - cron: "09 17 * * *"   # 17:09 UTC
-  #  - cron: "31 21 * * *"   # 21:31 UTC
+  schedule:
+    - cron: "17 8 * * *"    # 08:17 UTC
+    - cron: "43 12 * * *"   # 12:43 UTC
+    - cron: "09 17 * * *"   # 17:09 UTC
+    - cron: "31 21 * * *"   # 21:31 UTC
   workflow_dispatch:
     inputs:
       live:

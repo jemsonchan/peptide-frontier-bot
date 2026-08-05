@@ -1,0 +1,12 @@
+{
+  "counts": {
+    "approved": 0,
+    "expired": 0,
+    "failed": 0,
+    "pending": 0,
+    "published": 0,
+    "rejected": 0
+  },
+  "drafts": [],
+  "updated": "2026-08-05T17:08:22.292550+00:00"
+}

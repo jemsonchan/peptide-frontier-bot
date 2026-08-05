@@ -198,6 +198,13 @@ def mirror_to_nostr(queue: Queue, cfg, report: PublishReport) -> None:
     """
     if not getattr(cfg, "nostr", None) or not cfg.nostr.enabled:
         return
+    if getattr(cfg, "dry_run", False):
+        # Dry run has to mean dry run EVERYWHERE. Nostr costs nothing, which
+        # made it tempting to let it through -- but then the calibration days,
+        # where you read drafts with "nothing at stake", would silently be
+        # publishing every approved draft to your followers.
+        report.nostr.append({"skipped_all": "dry run — nothing published to Nostr"})
+        return
     key = nip46.get_signer()
     if key is None:
         return

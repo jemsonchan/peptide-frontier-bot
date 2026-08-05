@@ -1,13 +1,3 @@
-# ⚠️  SCHEDULES ARE DISABLED ON PURPOSE.
-# This repo was still PUBLIC when the auto-responder was added, and these
-# workflows commit state/ledger.json, state/queue.json and every rejected
-# draft back to the repo. Running them while public would publish all of it.
-#
-# TO ENABLE, IN THIS ORDER:
-#   1. Settings -> Danger Zone -> Change visibility -> private
-#      (GitHub asks for your account password; that step is yours alone)
-#   2. Uncomment the `schedule:` block below
-# Until then everything still works via Actions -> Run workflow.
 name: autorespond · publish-approved
 
 # Polls your approvals and publishes what you said yes to. This is the ONLY
@@ -17,8 +7,8 @@ name: autorespond · publish-approved
 # it also gives you a window to change your mind. A reject arriving after an
 # approve still wins (see publisher.PRECEDENCE).
 on:
-  # schedule:
-  #  - cron: "*/20 * * * *"
+  schedule:
+    - cron: "*/20 * * * *"
   # React immediately when you decide on GitHub, instead of waiting for cron.
   issues:
     types: [closed, labeled]

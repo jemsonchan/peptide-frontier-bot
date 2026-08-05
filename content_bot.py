@@ -132,8 +132,9 @@ def ground_europepmc(query, limit=3):
         "query": query,
         "format": "json",
         "pageSize": limit,
-        "sort": "P_PDATE_D desc",   # newest first
         "resultType": "core",
+        # default (relevance) sort, not date — date-sorting returned recent
+        # papers that only loosely matched the query, causing off-topic drafts
     }
     facts = []
     try:

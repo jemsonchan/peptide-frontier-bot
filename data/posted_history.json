@@ -62,6 +62,13 @@
       "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
       "text": "1000x error: 1 mg ≠ 1 µg. Milligrams (mg) are 1000 times larger than micrograms (µg). Confusing these units can lead to severe dosing errors. Always double-check your compound's specified units to avoid a critical mistake.",
       "tweet_id": "2084674672554041746"
+    },
+    {
+      "date": "2026-08-05T16:03:23Z",
+      "pillar": "study",
+      "topic": "A recent retatrutide Phase 3 (TRIUMPH) result and its key limitation",
+      "text": "Lilly's Phase 3 TRIUMPH trial results for retatrutide showed significant weight loss. However, it lacked a head-to-head comparison against other leading multi-agonists, a limitation noted in \"Obesity pharmacotherapy reimagined\" (2026). This limits direct efficacy claims.",
+      "tweet_id": "2085033928411222095"
     }
   ]
 }

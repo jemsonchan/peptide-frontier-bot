@@ -1,21 +1,11 @@
-# ⚠️  SCHEDULES ARE DISABLED ON PURPOSE.
-# This repo was still PUBLIC when the auto-responder was added, and these
-# workflows commit state/ledger.json, state/queue.json and every rejected
-# draft back to the repo. Running them while public would publish all of it.
-#
-# TO ENABLE, IN THIS ORDER:
-#   1. Settings -> Danger Zone -> Change visibility -> private
-#      (GitHub asks for your account password; that step is yours alone)
-#   2. Uncomment the `schedule:` block below
-# Until then everything still works via Actions -> Run workflow.
 name: autorespond · watch-changes
 
 # Weekly diff of the things that decide how this account performs and what it
 # costs. Opens an issue ONLY when something actually changed -- a watcher that
 # pings every week gets muted, and then you miss the week that mattered.
 on:
-  # schedule:
-  #  - cron: "23 9 * * 1"    # Mondays 09:23 UTC
+  schedule:
+    - cron: "23 9 * * 1"    # Mondays 09:23 UTC
   workflow_dispatch:
     inputs:
       announce_baseline:

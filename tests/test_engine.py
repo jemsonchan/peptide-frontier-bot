@@ -218,3 +218,51 @@ def test_list_read_skipped_when_no_write_quota_left(tmp_path, ledger, scripted):
     # Never pay $0.005/post for candidates we have no quota left to reply to.
     assert report.harvested.get("list", 0) == 0
     assert ledger.count_today("read_list_posts") == 0
+
+# ------------------------------------------------- skip-reason observability
+def test_model_skip_reports_the_models_own_reason(tmp_path, ledger, monkeypatch):
+    """
+    A run where everything skips looked identical to a run where everything
+    failed a gate. That ambiguity cost a diagnosis cycle on 2026-08-06.
+    """
+    monkeypatch.setattr(llm, "generate",
+                        lambda s, u, c=None: "SKIP: post already states the effect size")
+    cfg = cfg_for(tmp_path)
+    client = FakeX(ledger, mentions=[make_post(id="m1", created_at=iso(1))])
+    report = Engine(cfg, client, ledger).run()
+
+    assert report.published == []
+    reasons = [s["reason"] for s in report.skipped]
+    assert any("model declined" in r and "already states the effect size" in r
+               for r in reasons), reasons
+
+
+def test_gate_rejection_is_named_as_such(tmp_path, ledger, monkeypatch):
+    monkeypatch.setattr(llm, "generate",
+                        lambda s, u, c=None: "Full data at https://pubmed.gov/1")
+    cfg = cfg_for(tmp_path, max_regenerations=0)
+    client = FakeX(ledger, mentions=[make_post(id="m1", created_at=iso(1))])
+    report = Engine(cfg, client, ledger).run()
+
+    reasons = " ".join(s["reason"] for s in report.skipped)
+    assert "gate:" in reasons and "URL" in reasons
+    assert "model declined" not in reasons
+
+
+def test_llm_error_is_distinguishable_from_a_skip(tmp_path, ledger, monkeypatch):
+    def boom(s, u, c=None):
+        raise llm.LLMError("429 rate limited")
+
+    monkeypatch.setattr(llm, "generate", boom)
+    cfg = cfg_for(tmp_path)
+    client = FakeX(ledger, mentions=[make_post(id="m1", created_at=iso(1))])
+    report = Engine(cfg, client, ledger).run()
+
+    assert any("llm error" in s["reason"] for s in report.skipped)
+    assert any("429" in e for e in report.errors)
+
+
+def test_skip_reason_parsing():
+    assert llm.skip_reason("SKIP: nothing to add") == "nothing to add"
+    assert llm.skip_reason("SKIP") == "no reason given"
+    assert llm.skip_reason("SKIP - post is promotional") == "post is promotional"

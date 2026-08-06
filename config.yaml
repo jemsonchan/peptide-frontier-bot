@@ -54,7 +54,12 @@ selection:
   # expires. Decaying them like feed content let strangers outrank your own
   # unanswered commenters. Found in rehearsal, 2026-08-01.
   mention_half_life: 36.0
-  mention_max_age_hours: 96
+  # 96h excluded the two genuinely unanswered replies on the BPC-157 thread,
+  # which were 190h old by the time the schedules went live. A reply reaches
+  # its author by NOTIFICATION, and a notification does not expire -- so the
+  # only real cost of answering late is looking slow, not looking automated.
+  # 14 days. Beyond that it does start to read as odd.
+  mention_max_age_hours: 336
 
 dry_run: true                 # flip via PF_DRY_RUN=0 in the workflow when ready
 max_actions_per_run: 2        # 4 runs/day x 2 = 8 ceiling, quotas cut it to ~4

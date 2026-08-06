@@ -94,6 +94,7 @@ class Engine:
             self.report.errors.append(
                 f"paused until {self.ledger.paused_until}: {self.ledger.pause_reason}"
             )
+            self.report.spend_after = str(self.ledger.month_spend())
             self.report.ledger_summary = self.ledger.summary()
             return self.report
 
@@ -104,6 +105,7 @@ class Engine:
                 f"reserve reached: ${self.ledger.remaining_month()} left, "
                 f"reserve ${self.cfg.budget.reserve_usd}"
             )
+            self.report.spend_after = str(self.ledger.month_spend())
             self.report.ledger_summary = self.ledger.summary()
             return self.report
 
@@ -120,6 +122,7 @@ class Engine:
         candidates = self._harvest(me_id)
         self.report.considered = len(candidates)
         if not candidates:
+            self.report.spend_after = str(self.ledger.month_spend())
             self.report.ledger_summary = self.ledger.summary()
             return self.report
 

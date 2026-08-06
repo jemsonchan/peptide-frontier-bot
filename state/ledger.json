@@ -1,9 +1,27 @@
 {
   "acted": {},
   "author_last_touch": {},
-  "billed_today": {},
+  "billed_today": {
+    "2026-08-06": [
+      "user:me",
+      "post:2082445882327482710",
+      "post:2082440143160365349",
+      "post:2075483877519614259",
+      "post:2075373479637950948",
+      "post:2085312794866356635",
+      "post:2085294315031736796",
+      "post:2085283358360150079",
+      "post:2085267127057965126",
+      "post:2085265349105115639",
+      "post:2085248754672873621",
+      "post:2085246139041972457",
+      "post:2085245730315465172",
+      "post:2085241281345888696",
+      "post:2085232215588581534"
+    ]
+  },
   "conversation_log": {},
-  "day_spend": "0.000000",
+  "day_spend": "0.055000",
   "entries": [
     {
       "action": "read_mentions",
@@ -44,13 +62,37 @@
       "ref": "(GLP-1 OR incretin) (study OR \"n=\" OR en",
       "ts": "2026-08-05T18:47:29.600431+00:00",
       "units": 10
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.001",
+      "note": "users/me",
+      "ref": "me",
+      "ts": "2026-08-06T10:48:46.604414+00:00",
+      "units": 1
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.004",
+      "note": "4 mentions",
+      "ref": "2072968799972728832",
+      "ts": "2026-08-06T10:48:46.739631+00:00",
+      "units": 4
+    },
+    {
+      "action": "read_search",
+      "cost": "0.050",
+      "note": "10 posts",
+      "ref": "(\"BPC-157\" OR \"TB-500\" OR ipamorelin) -i",
+      "ts": "2026-08-06T10:48:46.880531+00:00",
+      "units": 10
     }
   ],
   "joined_conversations": {},
   "kind_counts": {},
   "month": "2026-08",
-  "month_spend": "0.070000",
+  "month_spend": "0.125000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-08-06T09:28:17.934802+00:00"
+  "updated": "2026-08-06T10:48:47.764595+00:00"
 }

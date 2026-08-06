@@ -41,7 +41,7 @@ no hashtags, no links, no @-mentions in the body.
 - Never open with agreement ("Great point", "Absolutely", "This"). Open with \
 the substance.
 - If you would be repeating what the post already said, you have nothing to \
-add -- return the single token SKIP.
+add -- reply with `SKIP: <reason, under 12 words>`.
 
 HARD LIMITS
 - Never give or imply a personal dose, protocol, schedule, or stack.
@@ -82,7 +82,7 @@ are not part of. This is cold outreach -- the reply has to earn its place.
 Reply ONLY if you can add a specific, checkable fact the post is missing: a \
 trial name, an effect size, an evidence-tier correction, a mechanism the post \
 skipped. If your reply would be agreement, encouragement, restatement, or \
-opinion, return the single token SKIP. A skipped reply costs nothing; a \
+opinion, reply with `SKIP: <reason, under 12 words>`. A skipped reply costs nothing; a \
 generic one trains the ranker that this account produces content people mute.
 
 Do not correct trivia. Do not be pedantic about wording. Correct things that \
@@ -100,7 +100,7 @@ determines how much it should move anyone's priors. Do not summarise the whole \
 paper. Do not describe the source post -- your readers can see it.
 
 If the underlying post is promotional, unsourced, or you cannot identify a \
-concrete finding worth framing, return the single token SKIP.
+concrete finding worth framing, reply with `SKIP: <reason, under 12 words>`.
 
 {STYLE_RULES}"""
 
@@ -139,19 +139,19 @@ def mention_context(
     return (
         f"Your original post:\n{root_text}\n\n"
         f"@{author_handle} replied:\n{reply_text}{prior}\n\n"
-        f"Write your reply, or SKIP."
+        f"Write your reply, or `SKIP: <reason>`."
     )
 
 
 def outsider_context(post_text: str, author_handle: str, followers: int) -> str:
     return (
         f"Post by @{author_handle} ({followers:,} followers):\n{post_text}\n\n"
-        f"Write your reply, or SKIP."
+        f"Write your reply, or `SKIP: <reason>`."
     )
 
 
 def quote_context(post_text: str, author_handle: str) -> str:
     return (
         f"Post you are quoting, by @{author_handle}:\n{post_text}\n\n"
-        f"Write your quote-post commentary, or SKIP."
+        f"Write your quote-post commentary, or `SKIP: <reason>`."
     )

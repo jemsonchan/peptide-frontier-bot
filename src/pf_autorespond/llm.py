@@ -144,6 +144,20 @@ def is_skip(text: str) -> bool:
     return t == SKIP or t.startswith("SKIP")
 
 
+def skip_reason(text: str) -> str:
+    """
+    Pull the model's own explanation out of a `SKIP: ...` reply.
+
+    Worth capturing: a run where everything skips is indistinguishable from a
+    run where everything failed a gate, unless the skip says why. That
+    ambiguity cost a full diagnosis cycle on 2026-08-06.
+    """
+    t = (text or "").strip().strip('."\'')
+    if ":" in t:
+        return t.split(":", 1)[1].strip()[:120]
+    return t[len(SKIP):].strip(" -–—.")[:120] or "no reason given"
+
+
 def critique(draft: str, context: str, cfg: LLMConfig | None = None) -> tuple[bool, str]:
     """
     Second opinion on our own draft. Returns (passed, reason).

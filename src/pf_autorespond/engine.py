@@ -274,10 +274,13 @@ class Engine:
             return
 
         system, context = self._build_prompt(cand)
-        text = self._generate(system, context)
+        text, why = self._generate(system, context)
         if text is None:
+            # `why` distinguishes model-skip / gate / critic / llm-error. The
+            # old catch-all message made a run of zero drafts unreadable.
             self.report.skipped.append(
-                {"id": cand.post.id, "kind": cand.kind, "reason": "model returned SKIP or failed gates"}
+                {"id": cand.post.id, "kind": cand.kind, "target": cand.post.author_handle,
+                 "reason": why}
             )
             return
 
@@ -367,32 +370,43 @@ class Engine:
             p.text, p.author_handle, p.author_followers
         )
 
-    def _generate(self, system: str, context: str) -> str | None:
-        """Generate -> clean -> gate -> critique. Returns None to skip."""
+    def _generate(self, system: str, context: str) -> tuple[str | None, str]:
+        """
+        Generate -> clean -> gate -> critique.
+
+        Returns (text, reason). `text` is None when nothing publishable came
+        out, and `reason` says which stage stopped it -- the model declining,
+        a safety gate, the critic, or the API. Those four have completely
+        different fixes, so collapsing them into one message (as this did
+        until 2026-08-06) makes a zero-draft run impossible to diagnose.
+        """
+        last = "no attempts made"
         for attempt in range(self.cfg.max_regenerations + 1):
             try:
                 raw = llm.generate(system, context)
             except llm.LLMError as e:
                 self.report.errors.append(f"llm: {e}")
-                return None
+                return None, f"llm error: {str(e)[:100]}"
             if llm.is_skip(raw):
-                return None
+                return None, f"model declined: {llm.skip_reason(raw)}"
 
             text = safety.strip_risky(raw)
             verdict = safety.gate_reply(text)
             if not verdict:
+                last = f"gate: {verdict.reason}"
                 log.info("gate rejected (attempt %d): %s", attempt + 1, verdict.reason)
-                self.report.skipped.append({"reason": f"gate: {verdict.reason}", "draft": text[:120]})
+                self.report.skipped.append({"reason": last, "draft": text[:120]})
                 continue
 
             if self.cfg.use_critic:
                 passed, why = llm.critique(text, context)
                 if not passed:
+                    last = f"critic: {why}"
                     log.info("critic rejected (attempt %d): %s", attempt + 1, why)
-                    self.report.skipped.append({"reason": f"critic: {why}", "draft": text[:120]})
+                    self.report.skipped.append({"reason": last, "draft": text[:120]})
                     continue
-            return text
-        return None
+            return text, ""
+        return None, f"exhausted {self.cfg.max_regenerations + 1} attempts; last: {last}"
 
 
 # ------------------------------------------------------------------ logging

@@ -815,3 +815,43 @@ def test_reconcile_reports_what_it_declined(tmp_path, monkeypatch):
 
     assert [g.x_id for g in gaps] == ["good"]
     assert report.nostr[0]["not_worth_bridging"] == 2
+
+def test_dry_run_suppresses_nostr_too(tmp_path, monkeypatch):
+    """
+    Dry run must mean dry run everywhere. Nostr being free made it tempting to
+    let it through, but that would publish every approved draft during the
+    calibration days you were told had nothing at stake.
+    """
+    from pf_autorespond.publisher import mirror_to_nostr
+
+    monkeypatch.setenv("NOSTR_NSEC", SK)
+    sent = []
+    _fake_pool(monkeypatch, published=sent)
+
+    cfg = _nostr_cfg(tmp_path)
+    cfg.dry_run = True
+
+    q = Queue(tmp_path / "q.json")
+    q.add(make_draft(status="published", kind="mention"))
+    report = PublishReport()
+    mirror_to_nostr(q, cfg, report)
+
+    assert sent == []
+    assert not q.drafts[0].nostr_event
+    assert "dry run" in report.nostr[0]["skipped_all"]
+
+
+def test_live_mode_still_mirrors(tmp_path, monkeypatch):
+    from pf_autorespond.publisher import mirror_to_nostr
+
+    monkeypatch.setenv("NOSTR_NSEC", SK)
+    sent = []
+    _fake_pool(monkeypatch, published=sent)
+
+    cfg = _nostr_cfg(tmp_path)
+    cfg.dry_run = False
+
+    q = Queue(tmp_path / "q.json")
+    q.add(make_draft(status="published", kind="mention"))
+    mirror_to_nostr(q, cfg, PublishReport())
+    assert len(sent) == 1

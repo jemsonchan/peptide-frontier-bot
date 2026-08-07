@@ -1,6 +1,8 @@
 {
   "acted": {},
-  "author_last_touch": {},
+  "author_last_touch": {
+    "1874319357238484992": "2026-08-07T13:57:29.042689+00:00"
+  },
   "billed_today": {
     "2026-08-07": [
       "user:me",
@@ -135,10 +137,14 @@
     }
   ],
   "joined_conversations": {},
-  "kind_counts": {},
+  "kind_counts": {
+    "2026-08-07": {
+      "mention": 1
+    }
+  },
   "month": "2026-08",
   "month_spend": "0.191000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-08-07T13:56:57.042446+00:00"
+  "updated": "2026-08-07T13:57:31.514742+00:00"
 }

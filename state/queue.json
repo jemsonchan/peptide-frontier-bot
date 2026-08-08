@@ -1,9 +1,9 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 0,
+    "expired": 1,
     "failed": 0,
-    "pending": 1,
+    "pending": 0,
     "published": 0,
     "rejected": 0
   },
@@ -12,7 +12,7 @@
       "action": "reply",
       "conversation_id": "2082431796327993655",
       "created": "2026-08-07T13:57:28.317533+00:00",
-      "decided_at": "",
+      "decided_at": "2026-08-08T02:25:05.030761+00:00",
       "decided_by": "",
       "decided_via": "",
       "github_issue": 1,
@@ -24,7 +24,7 @@
       "published_id": "",
       "reject_reason": "",
       "score": 4.42,
-      "status": "pending",
+      "status": "expired",
       "target_author": "stranger9824",
       "target_id": "2082445882327482710",
       "target_text": "@PeptideFrontier True, but anecdotal evidence is pretty strong.",
@@ -32,5 +32,5 @@
       "text": "Anecdotal evidence, while compelling, is considered the lowest tier of evidence. For instance, the placebo effect alone can account for 30-50% of perceived improvement in many conditions, making it difficult to isolate a compound's true effect without controlled studies."
     }
   ],
-  "updated": "2026-08-08T00:04:23.079363+00:00"
+  "updated": "2026-08-08T02:25:06.232104+00:00"
 }

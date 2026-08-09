@@ -3,7 +3,7 @@
     "approved": 0,
     "expired": 1,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "published": 0,
     "rejected": 0
   },
@@ -30,7 +30,30 @@
       "target_text": "@PeptideFrontier True, but anecdotal evidence is pretty strong.",
       "telegram_message": 0,
       "text": "Anecdotal evidence, while compelling, is considered the lowest tier of evidence. For instance, the placebo effect alone can account for 30-50% of perceived improvement in many conditions, making it difficult to isolate a compound's true effect without controlled studies."
+    },
+    {
+      "action": "reply",
+      "conversation_id": "2082431796327993655",
+      "created": "2026-08-09T21:56:19.977016+00:00",
+      "decided_at": "",
+      "decided_by": "",
+      "decided_via": "",
+      "github_issue": 3,
+      "id": "806439be91a5",
+      "kind": "mention",
+      "nostr_event": "",
+      "nostr_relays_ok": 0,
+      "original_text": "",
+      "published_id": "",
+      "reject_reason": "",
+      "score": 4.37,
+      "status": "pending",
+      "target_author": "vedichi_",
+      "target_id": "2082440143160365349",
+      "target_text": "@PeptideFrontier no human PK either, so even the rodent doses don't translate into a number for a person.",
+      "telegram_message": 0,
+      "text": "Correct. Rodent models often show higher metabolic rates, meaning a proportionally larger dose is needed to achieve similar systemic exposure compared to humans. This difference in pharmacokinetics prevents direct translation of effective doses."
     }
   ],
-  "updated": "2026-08-09T21:51:55.265134+00:00"
+  "updated": "2026-08-09T21:56:20.447086+00:00"
 }

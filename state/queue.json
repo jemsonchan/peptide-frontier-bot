@@ -1,9 +1,9 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 1,
+    "expired": 2,
     "failed": 0,
-    "pending": 1,
+    "pending": 0,
     "published": 0,
     "rejected": 0
   },
@@ -35,7 +35,7 @@
       "action": "reply",
       "conversation_id": "2082431796327993655",
       "created": "2026-08-09T21:56:19.977016+00:00",
-      "decided_at": "",
+      "decided_at": "2026-08-10T10:17:34.246632+00:00",
       "decided_by": "",
       "decided_via": "",
       "github_issue": 3,
@@ -47,7 +47,7 @@
       "published_id": "",
       "reject_reason": "",
       "score": 4.37,
-      "status": "pending",
+      "status": "expired",
       "target_author": "vedichi_",
       "target_id": "2082440143160365349",
       "target_text": "@PeptideFrontier no human PK either, so even the rodent doses don't translate into a number for a person.",
@@ -55,5 +55,5 @@
       "text": "Correct. Rodent models often show higher metabolic rates, meaning a proportionally larger dose is needed to achieve similar systemic exposure compared to humans. This difference in pharmacokinetics prevents direct translation of effective doses."
     }
   ],
-  "updated": "2026-08-10T09:46:40.723653+00:00"
+  "updated": "2026-08-10T10:17:35.763989+00:00"
 }

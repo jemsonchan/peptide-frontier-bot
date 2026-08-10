@@ -83,6 +83,13 @@
       "topic": "Concentration = mass / volume: the one equation that prevents most dosing mistakes",
       "text": "Your final concentration isn't just about the vial. If you reconstitute a 5 mg peptide vial with 2 mL of solvent, the concentration is 2.5 mg/mL. With 5 mL of solvent, it's 1 mg/mL. Always calculate mass ÷ volume for accurate dosing.",
       "tweet_id": "2086462708052791707"
+    },
+    {
+      "date": "2026-08-10T15:05:06Z",
+      "pillar": "mechanism",
+      "topic": "Why retatrutide is a triple agonist (GLP-1 + GIP + glucagon) and how that differs from Ozempic/Wegovy",
+      "text": "Retatrutide is a \"triple-G\" agonist, activating GLP-1, GIP, and glucagon receptors. Unlike Ozempic/Wegovy (GLP-1 only), its glucagon component may increase energy expenditure. This broader mechanism is why it's a next-gen candidate for metabolic disease.",
+      "tweet_id": "2086831198731669692"
     }
   ]
 }

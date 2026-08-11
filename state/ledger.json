@@ -20,11 +20,12 @@
       "post:2086917046172819962",
       "post:2086907718866993305",
       "post:2086906002524315994",
-      "post:2086903993150959633"
+      "post:2086903993150959633",
+      "post:2081684479941210567"
     ]
   },
   "conversation_log": {},
-  "day_spend": "0.055000",
+  "day_spend": "0.056000",
   "entries": [
     {
       "action": "read_mentions",
@@ -281,13 +282,21 @@
       "ref": "(GLP-1 OR incretin) (study OR \"n=\" OR en",
       "ts": "2026-08-11T09:12:42.793078+00:00",
       "units": 10
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.001",
+      "note": "5 mentions",
+      "ref": "2072968799972728832",
+      "ts": "2026-08-11T18:05:10.150834+00:00",
+      "units": 1
     }
   ],
   "joined_conversations": {},
   "kind_counts": {},
   "month": "2026-08",
-  "month_spend": "0.446000",
+  "month_spend": "0.447000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-08-11T17:16:26.903364+00:00"
+  "updated": "2026-08-11T18:05:10.151337+00:00"
 }

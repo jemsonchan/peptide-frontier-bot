@@ -90,6 +90,13 @@
       "topic": "Why retatrutide is a triple agonist (GLP-1 + GIP + glucagon) and how that differs from Ozempic/Wegovy",
       "text": "Retatrutide is a \"triple-G\" agonist, activating GLP-1, GIP, and glucagon receptors. Unlike Ozempic/Wegovy (GLP-1 only), its glucagon component may increase energy expenditure. This broader mechanism is why it's a next-gen candidate for metabolic disease.",
       "tweet_id": "2086831198731669692"
+    },
+    {
+      "date": "2026-08-11T15:04:28Z",
+      "pillar": "numeracy",
+      "topic": "Why IU (units) are not milligrams, and how insulin-syringe markings mislead people",
+      "text": "Units (IU) ≠ milligrams (mg). IU measure biological activity, not mass. Botulinum toxins, for example, have varied IU potency across products due to different assays (2024 review). Don't assume equivalency—check the specific product's mg/mL.",
+      "tweet_id": "2087193429621023087"
     }
   ]
 }

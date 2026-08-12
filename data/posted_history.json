@@ -97,6 +97,13 @@
       "topic": "Why IU (units) are not milligrams, and how insulin-syringe markings mislead people",
       "text": "Units (IU) ≠ milligrams (mg). IU measure biological activity, not mass. Botulinum toxins, for example, have varied IU potency across products due to different assays (2024 review). Don't assume equivalency—check the specific product's mg/mL.",
       "tweet_id": "2087193429621023087"
+    },
+    {
+      "date": "2026-08-12T15:03:39Z",
+      "pillar": "study",
+      "topic": "A recent study on amycretin, mazdutide, or pemvidutide (next-wave multi-pathway compounds)",
+      "text": "Oral amycretin showed significant weight loss in a Phase 1 trial. This dual GLP-1/amylin agonist by Novo Nordisk is discussed in a \"Future Directions\" review (2026), highlighting a shift towards multi-hormone targeting for improved metabolic outcomes.",
+      "tweet_id": "2087555598183268759"
     }
   ]
 }

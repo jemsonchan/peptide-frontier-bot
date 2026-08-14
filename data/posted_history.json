@@ -111,6 +111,13 @@
       "topic": "Myth: 'research use only' labels mean a compound is FDA-approved or safe for humans",
       "text": "Research Use Only\" does *not* mean FDA-approved or safe for humans. It means the compound isn't approved for human use and hasn't undergone rigorous safety/efficacy trials. (See \"Therapeutic Peptides...\" 2026). It's for lab experiments only.",
       "tweet_id": "2087917850442830322"
+    },
+    {
+      "date": "2026-08-14T14:57:28Z",
+      "pillar": "study",
+      "topic": "A recent trial on GLP-1 and cardiovascular or metabolic outcomes",
+      "text": "A 2026 matched cohort study in \"Cardiovascular Outcomes of Tirzepatide vs Semaglutide in Obesity Without Type 2 Diabetes\" found no significant difference in CV events between tirzepatide and semaglutide. More research is needed in this specific population.",
+      "tweet_id": "2088278832444834242"
     }
   ]
 }

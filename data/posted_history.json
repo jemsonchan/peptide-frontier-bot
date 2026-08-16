@@ -125,6 +125,13 @@
       "topic": "Compounding pharmacy landscape after semaglutide/tirzepatide shortages ended",
       "text": "Compounding pharmacies face increased scrutiny post-GLP-1 shortages. As branded semaglutide/tirzepatide supply stabilized, the FDA reiterated that compounded versions are unapproved. The legal landscape for these products continues to narrow.",
       "tweet_id": "2088634027863388528"
+    },
+    {
+      "date": "2026-08-16T14:29:17Z",
+      "pillar": "numeracy",
+      "topic": "How to read an insulin syringe: units on the barrel vs the volume you actually draw",
+      "text": "An insulin syringe's \"units\" (e.g., U-100) refer to 100 units per mL. The lines on the barrel indicate volume, not compound units. If drawing \"20 units,\" you're drawing 0.2 mL from a U-100 syringe. Know your syringe type and your solution's concentration.",
+      "tweet_id": "2088996515234611419"
     }
   ]
 }

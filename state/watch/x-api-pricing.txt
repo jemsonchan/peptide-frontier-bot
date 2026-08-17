@@ -53,7 +53,7 @@ Charged per resource returned in the response.
 | **Block: Read**               | \$0.001 per resource |
 | **Profile Update: Read**      | \$0.005 per resource |
 <Note>
-  Pay-per-usage plans are capped at **2 million Post reads per monthly billing cycle**. If you need higher volume, upgrade to an [Enterprise plan](/forms/enterprise-api-interest).
+  Pay-per-usage plans are capped at **3 million Post reads per monthly billing cycle**. If you need higher volume, upgrade to an [Enterprise plan](/forms/enterprise-api-interest).
 </Note>
 ### Write operations
 Charged per request.

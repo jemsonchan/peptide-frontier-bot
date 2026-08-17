@@ -132,6 +132,13 @@
       "topic": "How to read an insulin syringe: units on the barrel vs the volume you actually draw",
       "text": "An insulin syringe's \"units\" (e.g., U-100) refer to 100 units per mL. The lines on the barrel indicate volume, not compound units. If drawing \"20 units,\" you're drawing 0.2 mL from a U-100 syringe. Know your syringe type and your solution's concentration.",
       "tweet_id": "2088996515234611419"
+    },
+    {
+      "date": "2026-08-17T14:34:12Z",
+      "pillar": "mechanism",
+      "topic": "BPC-157 proposed angiogenic and tendon-healing mechanisms — and why the evidence is mostly preclinical",
+      "text": "BPC-157 is studied for angiogenesis & tendon repair by modulating growth factors (2026 review). While promising for healing, human data is *very* limited. Most evidence is preclinical, not clinical. Tread cautiously with claims.",
+      "tweet_id": "2089360099878064244"
     }
   ]
 }

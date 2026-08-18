@@ -139,6 +139,13 @@
       "topic": "BPC-157 proposed angiogenic and tendon-healing mechanisms — and why the evidence is mostly preclinical",
       "text": "BPC-157 is studied for angiogenesis & tendon repair by modulating growth factors (2026 review). While promising for healing, human data is *very* limited. Most evidence is preclinical, not clinical. Tread cautiously with claims.",
       "tweet_id": "2089360099878064244"
+    },
+    {
+      "date": "2026-08-18T14:38:58Z",
+      "pillar": "numeracy",
+      "topic": "Bacteriostatic water vs sterile water for reconstitution, and shelf-life implications",
+      "text": "Bacteriostatic water (BW) contains benzyl alcohol, inhibiting bacterial growth for ~28 days after first use. Sterile water (SW) lacks this, making it prone to contamination. Peptides reconstituted with BW have a longer fridge shelf-life than those with SW.",
+      "tweet_id": "2089723729441865740"
     }
   ]
 }

@@ -20,11 +20,12 @@
       "post:2089611518350610527",
       "post:2089570498560884825",
       "post:2089543126935572950",
-      "post:2089540475224993853"
+      "post:2089540475224993853",
+      "post:2081684479941210567"
     ]
   },
   "conversation_log": {},
-  "day_spend": "0.055000",
+  "day_spend": "0.056000",
   "entries": [
     {
       "action": "read_mentions",
@@ -489,13 +490,21 @@
       "ref": "(\"BPC-157\" OR \"TB-500\" OR ipamorelin) -i",
       "ts": "2026-08-18T08:52:13.576432+00:00",
       "units": 10
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.001",
+      "note": "5 mentions",
+      "ref": "2072968799972728832",
+      "ts": "2026-08-18T17:39:23.799100+00:00",
+      "units": 1
     }
   ],
   "joined_conversations": {},
   "kind_counts": {},
   "month": "2026-08",
-  "month_spend": "0.858000",
+  "month_spend": "0.859000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-08-18T17:27:55.618146+00:00"
+  "updated": "2026-08-18T17:39:23.799842+00:00"
 }

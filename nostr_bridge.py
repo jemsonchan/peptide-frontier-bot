@@ -5,9 +5,11 @@ Each post becomes a separate Nostr note (kind 1), threaded via e-tags.
 Leon's npub is tagged in every note so he can zap.
 
 Usage:
-    NOSTR_NSEC=nsecXXX python nostr_bridge.py
+    python nostr_bridge.py              # dry run: prints the thread, posts nothing
+    NOSTR_NSEC=nsecXXX python nostr_bridge.py --live   # actually publishes
 """
 
+import argparse
 import os
 import sys
 import time
@@ -72,6 +74,12 @@ def npub_to_hex(npub: str) -> str:
     return bytes(decoded).hex()
 
 
+def preview_thread() -> None:
+    log.info("[DRY RUN] Not connecting to relays. Not posting. Add --live to publish.")
+    for i, post in enumerate(POSTS):
+        log.info("--- note %d/%d ---\n%s", i + 1, len(POSTS), post["text"])
+
+
 def post_thread(nsec: str):
     from basic_nostr import NostrClient
 
@@ -105,23 +113,17 @@ def post_thread(nsec: str):
             if parent_event_id and parent_event_id != root_event_id:
                 tags.append(["e", parent_event_id, "", "reply"])
 
-            try:
-                # basic_nostr make_post signature: (content, tags=None)
-                event_id = client.make_post(text, tags=tags if tags else None)
-                log.info("Posted note %d/%d event_id=%s", i + 1, len(POSTS), event_id)
+            # make_post returns (event_dict, relay_responses) -- the event's
+            # real id lives at event_dict["id"], not the tuple itself. Using
+            # the raw tuple as the next note's e-tag value corrupts the tag
+            # and gets it rejected by every relay that validates tag shape.
+            event, responses = client.make_post(text, tags=tags if tags else None)
+            event_id = event["id"]
+            log.info("Posted note %d/%d event_id=%s", i + 1, len(POSTS), event_id)
 
-                if root_event_id is None:
-                    root_event_id = event_id
-                parent_event_id = event_id
-
-            except TypeError:
-                # Fallback: older basic_nostr without tags support
-                event_id = client.make_post(text)
-                log.info("Posted note %d/%d (no-tags fallback) event_id=%s", i + 1, len(POSTS), event_id)
-
-                if root_event_id is None:
-                    root_event_id = event_id
-                parent_event_id = event_id
+            if root_event_id is None:
+                root_event_id = event_id
+            parent_event_id = event_id
 
             # Brief pause between posts to avoid relay rate-limiting
             time.sleep(2)
@@ -129,9 +131,23 @@ def post_thread(nsec: str):
     log.info("Thread bridge complete. Root event: %s", root_event_id)
 
 
-if __name__ == "__main__":
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--live", action="store_true",
+                         help="actually publish to relays (default: dry run, prints the thread only)")
+    args = parser.parse_args()
+
+    if not args.live:
+        preview_thread()
+        return 0
+
     nsec = os.getenv("NOSTR_NSEC", "").strip()
     if not nsec:
         log.error("NOSTR_NSEC environment variable is not set.")
-        sys.exit(1)
+        return 1
     post_thread(nsec)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

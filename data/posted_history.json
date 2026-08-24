@@ -181,6 +181,13 @@
       "topic": "Bacteriostatic water vs sterile water for reconstitution, and shelf-life implications",
       "text": "Bacteriostatic water (BW) contains benzyl alcohol, extending reconstituted peptide shelf-life to ~28 days in the fridge. Sterile water (SW) lacks this preservative, meaning peptides mixed with SW should be used within days to minimize contamination risk.",
       "tweet_id": "2091533187990032742"
+    },
+    {
+      "date": "2026-08-24T14:49:00Z",
+      "pillar": "mechanism",
+      "topic": "Why glucagon agonism can increase energy expenditure, not just suppress appetite",
+      "text": "Glucagon agonism isn't just about appetite. It can boost energy expenditure and fat burning, a mechanism explored in 2026 reviews on multi-agonist therapies. This explains why compounds targeting GCGR, like retatrutide, go beyond GLP-1's effects.",
+      "tweet_id": "2091900576405835861"
     }
   ]
 }

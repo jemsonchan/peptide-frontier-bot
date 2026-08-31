@@ -230,6 +230,13 @@
       "topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations",
       "text": "A 10mg vial + 1mL water = 10mg/mL.\nA 10mg vial + 3mL water = 3.33mg/mL.\nThe amount of diluent changes your concentration. Always calculate your exact mg/mL before dosing. Precision prevents error.",
       "tweet_id": "2094123064950690029"
+    },
+    {
+      "date": "2026-08-31T19:54:08Z",
+      "pillar": "mechanism",
+      "topic": "TB-500 / thymosin beta-4 and actin regulation in tissue repair",
+      "text": "TB-500 (Thymosin Beta-4) acts by sequestering G-actin, preventing its polymerization into F-actin. This mechanism impacts cell motility and tissue repair, modulating inflammation and angiogenesis. (2026 reviews in \"Therapeutic Peptides in Orthopaedics\").",
+      "tweet_id": "2094514082418249985"
     }
   ]
 }

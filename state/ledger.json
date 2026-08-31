@@ -1,12 +1,32 @@
 {
   "acted": {},
   "author_last_touch": {
+    "14402227": "2026-08-31T16:08:30.609090+00:00",
     "1874319357238484992": "2026-08-10T14:04:05.358612+00:00",
     "2279011389": "2026-08-09T21:56:20.444763+00:00"
   },
-  "billed_today": {},
+  "billed_today": {
+    "2026-08-31": [
+      "user:me",
+      "post:2082445882327482710",
+      "post:2082440143160365349",
+      "post:2081684479941210567",
+      "post:2075483877519614259",
+      "post:2075373479637950948",
+      "post:2094447885265854561",
+      "post:2094441148693598614",
+      "post:2094437603479085496",
+      "post:2094437271202082951",
+      "post:2094431156280172630",
+      "post:2094430150209196402",
+      "post:2094428919982068121",
+      "post:2094426168250286492",
+      "post:2094415245901287511",
+      "post:2094410337072116101"
+    ]
+  },
   "conversation_log": {},
-  "day_spend": "0.000000",
+  "day_spend": "0.056000",
   "entries": [
     {
       "action": "read_mentions",
@@ -783,13 +803,41 @@
       "ref": "(retatrutide OR tirzepatide OR semagluti",
       "ts": "2026-08-30T13:47:03.231330+00:00",
       "units": 10
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.001",
+      "note": "users/me",
+      "ref": "me",
+      "ts": "2026-08-31T16:08:28.349526+00:00",
+      "units": 1
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.005",
+      "note": "5 mentions",
+      "ref": "2072968799972728832",
+      "ts": "2026-08-31T16:08:28.508385+00:00",
+      "units": 5
+    },
+    {
+      "action": "read_search",
+      "cost": "0.050",
+      "note": "10 posts",
+      "ref": "(retatrutide OR tirzepatide OR semagluti",
+      "ts": "2026-08-31T16:08:28.697183+00:00",
+      "units": 10
     }
   ],
   "joined_conversations": {},
-  "kind_counts": {},
+  "kind_counts": {
+    "2026-08-31": {
+      "outsider": 1
+    }
+  },
   "month": "2026-08",
-  "month_spend": "1.551000",
+  "month_spend": "1.607000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-08-31T14:04:30.780291+00:00"
+  "updated": "2026-08-31T16:08:31.069518+00:00"
 }

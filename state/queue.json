@@ -3,7 +3,7 @@
     "approved": 0,
     "expired": 3,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "published": 0,
     "rejected": 0
   },
@@ -76,7 +76,30 @@
       "target_text": "@PeptideFrontier True, but anecdotal evidence is pretty strong.",
       "telegram_message": 0,
       "text": "Anecdotal evidence, while compelling, is considered the lowest tier of evidence due to high susceptibility to bias and confounding factors. For example, the placebo effect alone can account for 30-50% of perceived improvements in many conditions."
+    },
+    {
+      "action": "reply",
+      "conversation_id": "2094428919982068121",
+      "created": "2026-08-31T16:08:29.975950+00:00",
+      "decided_at": "",
+      "decided_by": "",
+      "decided_via": "",
+      "github_issue": 7,
+      "id": "5d7aacb069df",
+      "kind": "outsider",
+      "nostr_event": "",
+      "nostr_relays_ok": 0,
+      "original_text": "",
+      "published_id": "",
+      "reject_reason": "",
+      "score": 4.55,
+      "status": "pending",
+      "target_author": "jjh_lifts",
+      "target_id": "2094428919982068121",
+      "target_text": "Retatrutide hits a third hormone receptor that tirzepatide and semaglutide never touch, and that's the whole reason it's outperforming both of them.\n\nGLP-1 slows your stomach and cuts your appetite, and GIP helps your body use the nutrients from your food better. Tirzepatide https://t.co/lZba9lhFt7",
+      "telegram_message": 0,
+      "text": "Retatrutide is a triple agonist for GLP-1, GIP, and glucagon receptors. Glucagon receptor agonism may increase energy expenditure, contributing to its observed efficacy in Phase 2 trials."
     }
   ],
-  "updated": "2026-08-31T14:04:30.723994+00:00"
+  "updated": "2026-08-31T16:08:31.071588+00:00"
 }

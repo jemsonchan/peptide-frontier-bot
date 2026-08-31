@@ -1,7 +1,7 @@
 # X For You Feed Algorithm
 This repository contains the core code that determines which posts a viewer sees in the **For You** feed on X. It combines in-network content (from accounts the viewer follows) with out-of-network content (discovered through ML-based retrieval and other mechanisms), filters content based on a variety of inputs, and ranks posts using a transformer model.
 ## Table of Contents
-- [Latest Updates](#latest-updates)
+- [Notable Updates](#notable-updates)
   - [August 14th, 2026](#august-14th-2026)
   - [August 13th, 2026](#august-13th-2026)
 - [Overview](#overview)
@@ -18,11 +18,11 @@ This repository contains the core code that determines which posts a viewer sees
 - [Key Design Decisions](#key-design-decisions)
 - [License](#license)
 ---
-## Latest Updates
+## Notable Updates
 ### August 14th, 2026
 Notable updates:
 - **How weights work.** There's a common misconception about how weights related to actions (e.g. Like, Share, Block, Report, etc) work in ranking. The weights scale the predicted probabilities of such actions (or predicted continuous values, e.g. dwell time) — they do *not* scale the raw engagement counts, so e.g. it'd be incorrect to see that a report has 468 times higher weight than a like and conclude that e.g. "1 report cancels out 468 likes". The weights are a multiple on your own predicted probability of Liking, Reporting, etc, which is substantially driven by your own behavior. We've [added comments](home-mixer/params/param.rs) [to the code](home-mixer/scorers/ranking_scorer.rs) so that LLMs or people reading it are more likely to understand it correctly.
-- **Brazil 2026 Elections.** As [announced by X](https://x.com/XBR/status/2088341967864320507?s=20), in accordance with Brazilian electoral law, For You now runs `Brazil2026ElectionFilter`, which removes posts from accounts reported to Brazil's Electoral Court for the 2026 election, unless the viewer explicitly follows the account. A benefit of open-source is that you can see that changes like this exist, and exactly how they work — take a [look at the code](home-mixer/filters/brazil_2026_election_filter.rs).
+- **Brazil 2026 Elections.** As [announced by X](https://x.com/XBR/status/2088341967864320507?s=20), in accordance with Brazilian electoral law, For You now runs `Brazil2026ElectionFilter`, which removes posts from accounts reported to Brazil's Electoral Court for the 2026 election, unless the viewer explicitly follows the account. *(Account list updated August 27, 2026.)* A benefit of open-source is that you can see that changes like this exist, and exactly how they work — take a [look at the code](home-mixer/filters/brazil_2026_election_filter.rs).
 ### August 13th, 2026
 This release:
 - Adds key configuration parameters (including weights used to blend predicted action values into a score for a post)

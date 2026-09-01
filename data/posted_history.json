@@ -237,6 +237,13 @@
       "topic": "TB-500 / thymosin beta-4 and actin regulation in tissue repair",
       "text": "TB-500 (Thymosin Beta-4) acts by sequestering G-actin, preventing its polymerization into F-actin. This mechanism impacts cell motility and tissue repair, modulating inflammation and angiogenesis. (2026 reviews in \"Therapeutic Peptides in Orthopaedics\").",
       "tweet_id": "2094514082418249985"
+    },
+    {
+      "date": "2026-09-01T17:45:43Z",
+      "pillar": "numeracy",
+      "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
+      "text": "1 mg\" is not \"1 mcg.\" This 1,000x difference is a common, dangerous error. 1 milligram (mg) = 1,000 micrograms (mcg). Always check units carefully on vials and syringes. Precision is paramount for safety and efficacy.",
+      "tweet_id": "2094844155046297869"
     }
   ]
 }

@@ -244,6 +244,13 @@
       "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
       "text": "1 mg\" is not \"1 mcg.\" This 1,000x difference is a common, dangerous error. 1 milligram (mg) = 1,000 micrograms (mcg). Always check units carefully on vials and syringes. Precision is paramount for safety and efficacy.",
       "tweet_id": "2094844155046297869"
+    },
+    {
+      "date": "2026-09-02T17:48:51Z",
+      "pillar": "study",
+      "topic": "A recent retatrutide Phase 3 (TRIUMPH) result and its key limitation",
+      "text": "Lilly's Phase 3 TRIUMPH trials for retatrutide are underway, investigating its effects on obesity, sleep apnea, and osteoarthritis (2026). A key limitation: early results on weight loss have been based on unapproved use, not the controlled trial data.",
+      "tweet_id": "2095207327137681563"
     }
   ]
 }

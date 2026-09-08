@@ -1,36 +1,13 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 3,
+    "expired": 2,
     "failed": 0,
     "pending": 0,
     "published": 0,
     "rejected": 0
   },
   "drafts": [
-    {
-      "action": "reply",
-      "conversation_id": "2082431796327993655",
-      "created": "2026-08-09T21:56:19.977016+00:00",
-      "decided_at": "2026-08-10T10:17:34.246632+00:00",
-      "decided_by": "",
-      "decided_via": "",
-      "github_issue": 3,
-      "id": "806439be91a5",
-      "kind": "mention",
-      "nostr_event": "",
-      "nostr_relays_ok": 0,
-      "original_text": "",
-      "published_id": "",
-      "reject_reason": "",
-      "score": 4.37,
-      "status": "expired",
-      "target_author": "vedichi_",
-      "target_id": "2082440143160365349",
-      "target_text": "@PeptideFrontier no human PK either, so even the rodent doses don't translate into a number for a person.",
-      "telegram_message": 0,
-      "text": "Correct. Rodent models often show higher metabolic rates, meaning a proportionally larger dose is needed to achieve similar systemic exposure compared to humans. This difference in pharmacokinetics prevents direct translation of effective doses."
-    },
     {
       "action": "reply",
       "conversation_id": "2082431796327993655",
@@ -78,5 +55,5 @@
       "text": "Retatrutide is a triple agonist for GLP-1, GIP, and glucagon receptors. Glucagon receptor agonism may increase energy expenditure, contributing to its observed efficacy in Phase 2 trials."
     }
   ],
-  "updated": "2026-09-08T21:38:06.672872+00:00"
+  "updated": "2026-09-08T23:29:20.209098+00:00"
 }

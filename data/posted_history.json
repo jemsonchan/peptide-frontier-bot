@@ -286,6 +286,13 @@
       "topic": "Why retatrutide is a triple agonist (GLP-1 + GIP + glucagon) and how that differs from Ozempic/Wegovy",
       "text": "Retatrutide is a triple agonist (GLP-1, GIP, glucagon), unlike Ozempic (GLP-1) or Mounjaro (GLP-1/GIP). This multi-receptor action, explored in a 2026 review, offers a different mechanism for weight loss and metabolic improvements.",
       "tweet_id": "2097032192006455653"
+    },
+    {
+      "date": "2026-09-08T17:51:33Z",
+      "pillar": "numeracy",
+      "topic": "How to read an insulin syringe: units on the barrel vs the volume you actually draw",
+      "text": "Insulin syringe barrels show \"units,\" but these refer to *volume*, not a set mg of peptide. If your peptide vial is 5 mg/mL, drawing to \"50 units\" means 0.5 mL, which is 2.5 mg of peptide. Always calculate mg per unit for your specific concentration.",
+      "tweet_id": "2097382335281086504"
     }
   ]
 }

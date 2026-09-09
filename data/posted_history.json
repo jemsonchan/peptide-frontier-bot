@@ -293,6 +293,13 @@
       "topic": "How to read an insulin syringe: units on the barrel vs the volume you actually draw",
       "text": "Insulin syringe barrels show \"units,\" but these refer to *volume*, not a set mg of peptide. If your peptide vial is 5 mg/mL, drawing to \"50 units\" means 0.5 mL, which is 2.5 mg of peptide. Always calculate mg per unit for your specific concentration.",
       "tweet_id": "2097382335281086504"
+    },
+    {
+      "date": "2026-09-09T17:44:27Z",
+      "pillar": "study",
+      "topic": "A recent trial on GLP-1 and cardiovascular or metabolic outcomes",
+      "text": "GLP-1s show cardiovascular benefits even in leaner patients. A \"Target Trial Emulation\" (2026) in *Cardiorenal Mortality* found GLP-1 receptor agonists reduced cardiorenal mortality in Type 2 Diabetes patients with BMI <27 kg/m².",
+      "tweet_id": "2097742936167321698"
     }
   ]
 }

@@ -335,6 +335,13 @@
       "topic": "BPC-157 proposed angiogenic and tendon-healing mechanisms — and why the evidence is mostly preclinical",
       "text": "BPC-157's proposed healing mechanisms (angiogenesis, tendon repair) are largely supported by preclinical rodent studies. \"Tendon, Ligament, and Muscle Injury... A Review\" (2026) notes human trials are still limited, so direct clinical evidence is needed.",
       "tweet_id": "2099576564866310624"
+    },
+    {
+      "date": "2026-09-15T18:04:07Z",
+      "pillar": "numeracy",
+      "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
+      "text": "The \"mg vs. mcg\" mistake is 1000x off. 1 milligram (mg) = 1000 micrograms (mcg). Misreading a prescription or dilution from mg to mcg, or vice-versa, leads to a massive overdose or underdose. Precision is non-negotiable for safety.",
+      "tweet_id": "2099922213445001714"
     }
   ]
 }

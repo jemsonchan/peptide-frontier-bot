@@ -342,6 +342,13 @@
       "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
       "text": "The \"mg vs. mcg\" mistake is 1000x off. 1 milligram (mg) = 1000 micrograms (mcg). Misreading a prescription or dilution from mg to mcg, or vice-versa, leads to a massive overdose or underdose. Precision is non-negotiable for safety.",
       "tweet_id": "2099922213445001714"
+    },
+    {
+      "date": "2026-09-16T18:04:22Z",
+      "pillar": "study",
+      "topic": "A recent paper on GLP-1 drugs and sleep apnea or liver disease (MASH)",
+      "text": "Semaglutide is showing significant promise for MASH (liver disease) and obstructive sleep apnea (OSA). A 2026 review highlights its potential for \"organ-specific disease modification,\" beyond just weight loss, impacting both liver health and OSA severity.",
+      "tweet_id": "2100284666540367913"
     }
   ]
 }

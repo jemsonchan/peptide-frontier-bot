@@ -3,7 +3,7 @@
     "approved": 0,
     "expired": 1,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "published": 0,
     "rejected": 0
   },
@@ -30,7 +30,30 @@
       "target_text": "Retatrutide hits a third hormone receptor that tirzepatide and semaglutide never touch, and that's the whole reason it's outperforming both of them.\n\nGLP-1 slows your stomach and cuts your appetite, and GIP helps your body use the nutrients from your food better. Tirzepatide https://t.co/lZba9lhFt7",
       "telegram_message": 0,
       "text": "Retatrutide is a triple agonist for GLP-1, GIP, and glucagon receptors. Glucagon receptor agonism may increase energy expenditure, contributing to its observed efficacy in Phase 2 trials."
+    },
+    {
+      "action": "reply",
+      "conversation_id": "2099576564866310624",
+      "created": "2026-09-17T13:24:55.910444+00:00",
+      "decided_at": "",
+      "decided_by": "",
+      "decided_via": "",
+      "github_issue": 9,
+      "id": "2f6674f9ba3f",
+      "kind": "mention",
+      "nostr_event": "",
+      "nostr_relays_ok": 0,
+      "original_text": "",
+      "published_id": "",
+      "reject_reason": "",
+      "score": 5.01,
+      "status": "pending",
+      "target_author": "peptideindexhq",
+      "target_id": "2099586257303060716",
+      "target_text": "@PeptideFrontier Appreciate the honest grade \u2014 BPC-157 angiogenesis and tendon claims are still mostly preclinical. Calling for human trials instead of overselling rodent data is how the category earns trust.",
+      "telegram_message": 0,
+      "text": "BPC-157's stability in gastric acid, unlike many peptides, suggests oral bioavailability. This was first observed in a 1998 rat study, though human pharmacokinetic data for oral BPC-157 is still absent from the literature."
     }
   ],
-  "updated": "2026-09-17T10:05:01.605169+00:00"
+  "updated": "2026-09-17T13:24:57.006983+00:00"
 }

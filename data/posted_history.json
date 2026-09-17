@@ -349,6 +349,13 @@
       "topic": "A recent paper on GLP-1 drugs and sleep apnea or liver disease (MASH)",
       "text": "Semaglutide is showing significant promise for MASH (liver disease) and obstructive sleep apnea (OSA). A 2026 review highlights its potential for \"organ-specific disease modification,\" beyond just weight loss, impacting both liver health and OSA severity.",
       "tweet_id": "2100284666540367913"
+    },
+    {
+      "date": "2026-09-17T18:04:45Z",
+      "pillar": "myth",
+      "topic": "Myth: GLP-1 muscle loss is unique to the drug rather than expected with any rapid weight loss",
+      "text": "Myth: GLP-1s uniquely cause muscle loss. Fact: Any rapid weight loss, regardless of method, can reduce lean mass. Studies like those in 2026 reviews confirm protein intake & strength training are key to preserving muscle, irrespective of the weight loss tool.",
+      "tweet_id": "2100647150615253074"
     }
   ]
 }

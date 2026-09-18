@@ -1,9 +1,9 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 1,
+    "expired": 2,
     "failed": 0,
-    "pending": 1,
+    "pending": 0,
     "published": 0,
     "rejected": 0
   },
@@ -35,7 +35,7 @@
       "action": "reply",
       "conversation_id": "2099576564866310624",
       "created": "2026-09-17T13:24:55.910444+00:00",
-      "decided_at": "",
+      "decided_at": "2026-09-18T05:10:05.982420+00:00",
       "decided_by": "",
       "decided_via": "",
       "github_issue": 9,
@@ -47,7 +47,7 @@
       "published_id": "",
       "reject_reason": "",
       "score": 5.01,
-      "status": "pending",
+      "status": "expired",
       "target_author": "peptideindexhq",
       "target_id": "2099586257303060716",
       "target_text": "@PeptideFrontier Appreciate the honest grade \u2014 BPC-157 angiogenesis and tendon claims are still mostly preclinical. Calling for human trials instead of overselling rodent data is how the category earns trust.",
@@ -55,5 +55,5 @@
       "text": "BPC-157's stability in gastric acid, unlike many peptides, suggests oral bioavailability. This was first observed in a 1998 rat study, though human pharmacokinetic data for oral BPC-157 is still absent from the literature."
     }
   ],
-  "updated": "2026-09-18T00:27:17.342938+00:00"
+  "updated": "2026-09-18T05:10:07.083506+00:00"
 }

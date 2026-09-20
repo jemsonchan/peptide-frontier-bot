@@ -370,6 +370,13 @@
       "topic": "Compounding pharmacy landscape after semaglutide/tirzepatide shortages ended",
       "text": "The GLP-1 compounding landscape is shifting. With brand-name semaglutide & tirzepatide supply stabilizing, the FDA's stance is firm: compounded versions of approved drugs are generally not legal. This impacts patient access and future sourcing.",
       "tweet_id": "2101357368458035411"
+    },
+    {
+      "date": "2026-09-20T17:21:56Z",
+      "pillar": "numeracy",
+      "topic": "Bacteriostatic water vs sterile water for reconstitution, and shelf-life implications",
+      "text": "Bacteriostatic water (BW) contains benzyl alcohol, inhibiting bacterial growth for ~28 days after first use. Sterile water has no preservative. Using BW extends reconstituted peptide stability, as noted in general compounding guidance, preventing contamination over weeks.",
+      "tweet_id": "2101723540055642567"
     }
   ]
 }

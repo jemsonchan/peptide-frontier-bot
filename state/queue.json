@@ -3,7 +3,7 @@
     "approved": 0,
     "expired": 2,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "published": 0,
     "rejected": 0
   },
@@ -53,7 +53,30 @@
       "target_text": "@PeptideFrontier Appreciate the honest grade \u2014 BPC-157 angiogenesis and tendon claims are still mostly preclinical. Calling for human trials instead of overselling rodent data is how the category earns trust.",
       "telegram_message": 0,
       "text": "BPC-157's stability in gastric acid, unlike many peptides, suggests oral bioavailability. This was first observed in a 1998 rat study, though human pharmacokinetic data for oral BPC-157 is still absent from the literature."
+    },
+    {
+      "action": "reply",
+      "conversation_id": "2099576564866310624",
+      "created": "2026-09-20T23:20:18.609984+00:00",
+      "decided_at": "",
+      "decided_by": "",
+      "decided_via": "",
+      "github_issue": 10,
+      "id": "e5b54fa7cda3",
+      "kind": "mention",
+      "nostr_event": "",
+      "nostr_relays_ok": 0,
+      "original_text": "",
+      "published_id": "",
+      "reject_reason": "",
+      "score": 4.68,
+      "status": "pending",
+      "target_author": "peptideindexhq",
+      "target_id": "2099586257303060716",
+      "target_text": "@PeptideFrontier Appreciate the honest grade \u2014 BPC-157 angiogenesis and tendon claims are still mostly preclinical. Calling for human trials instead of overselling rodent data is how the category earns trust.",
+      "telegram_message": 0,
+      "text": "BPC-157's pro-angiogenic effect was first noted in 1993 in a rat model of gastric ulcer. Subsequent rodent studies show increased VEGF and eNOS expression in injured tissues, though specific human trials on angiogenesis are still needed."
     }
   ],
-  "updated": "2026-09-20T21:48:13.790795+00:00"
+  "updated": "2026-09-20T23:20:19.164696+00:00"
 }

@@ -377,6 +377,13 @@
       "topic": "Bacteriostatic water vs sterile water for reconstitution, and shelf-life implications",
       "text": "Bacteriostatic water (BW) contains benzyl alcohol, inhibiting bacterial growth for ~28 days after first use. Sterile water has no preservative. Using BW extends reconstituted peptide stability, as noted in general compounding guidance, preventing contamination over weeks.",
       "tweet_id": "2101723540055642567"
+    },
+    {
+      "date": "2026-09-21T19:12:38Z",
+      "pillar": "mechanism",
+      "topic": "How GIP receptor agonism complements GLP-1 in dual agonists like tirzepatide",
+      "text": "Tirzepatide’s dual action: GLP-1 slows gastric emptying & reduces appetite, while GIP (glucose-dependent insulinotropic polypeptide) may directly curb fat storage. This synergy, per a 2026 review, offers a complementary approach to metabolic improvement.",
+      "tweet_id": "2102113785062232416"
     }
   ]
 }

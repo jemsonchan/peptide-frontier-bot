@@ -2,6 +2,7 @@
 This repository contains the core code that determines which posts a viewer sees in the **For You** feed on X. It combines in-network content (from accounts the viewer follows) with out-of-network content (discovered through ML-based retrieval and other mechanisms), filters content based on a variety of inputs, and ranks posts using a transformer model.
 ## Table of Contents
 - [Notable Updates](#notable-updates)
+  - [September 18th, 2026](#september-18th-2026)
   - [August 14th, 2026](#august-14th-2026)
   - [August 13th, 2026](#august-13th-2026)
 - [Overview](#overview)
@@ -19,6 +20,8 @@ This repository contains the core code that determines which posts a viewer sees
 - [License](#license)
 ---
 ## Notable Updates
+### September 18th, 2026
+- **[Under the Hood](#under-the-hood-label-transparency-tool).** Reports now include information about whether one's account or posts have had their visibility limited because of required compliance with law(s). For example, you'll be able to see if any of your posts were withheld from showing in a country following a legal demand — and which country.
 ### August 14th, 2026
 Notable updates:
 - **How weights work.** There's a common misconception about how weights related to actions (e.g. Like, Share, Block, Report, etc) work in ranking. The weights scale the predicted probabilities of such actions (or predicted continuous values, e.g. dwell time) — they do *not* scale the raw engagement counts, so e.g. it'd be incorrect to see that a report has 468 times higher weight than a like and conclude that e.g. "1 report cancels out 468 likes". The weights are a multiple on your own predicted probability of Liking, Reporting, etc, which is substantially driven by your own behavior. We've [added comments](home-mixer/params/param.rs) [to the code](home-mixer/scorers/ranking_scorer.rs) so that LLMs or people reading it are more likely to understand it correctly.
@@ -234,6 +237,7 @@ These produce the scores and labels that Visibility Filtering reads.
 | [`safety-label-user-agg/`](safety-label-user-agg/)             | Labels an account for what its posts collected.                                                                                                                                                               |
 | [`visibility-filtering-client/`](visibility-filtering-client/) | The client callers use to reach visibility filtering, and the post safety-label types it answers with.                                                                                                        |
 | [`under-the-hood/`](under-the-hood/)                           | Builds the per-account [Under the Hood](#under-the-hood-label-transparency-tool) report: daily jobs collect the labels applied to an account and its posts, which the serving layer aggregates over a period. |
+| [`takedowns/`](takedowns/)                                     | Produces the takedown-reason list that [`rules/context.rs`](visibility-filtering/rules/context.rs) applies: the tweet entity service merges a post's own reasons with its author's account-level ones. |
 ---
 ## How It Works
 ### Scoring and Ranking

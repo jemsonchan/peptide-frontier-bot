@@ -3,7 +3,7 @@
     "approved": 0,
     "expired": 3,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "published": 0,
     "rejected": 0
   },
@@ -76,7 +76,30 @@
       "target_text": "@PeptideFrontier Appreciate the honest grade \u2014 BPC-157 angiogenesis and tendon claims are still mostly preclinical. Calling for human trials instead of overselling rodent data is how the category earns trust.",
       "telegram_message": 0,
       "text": "BPC-157's pro-angiogenic effect was first noted in 1993 in a rat model of gastric ulcer. Subsequent rodent studies show increased VEGF and eNOS expression in injured tissues, though specific human trials on angiogenesis are still needed."
+    },
+    {
+      "action": "reply",
+      "conversation_id": "2102113785062232416",
+      "created": "2026-09-22T00:12:19.668851+00:00",
+      "decided_at": "",
+      "decided_by": "",
+      "decided_via": "",
+      "github_issue": 12,
+      "id": "dcd2b07e7f4f",
+      "kind": "mention",
+      "nostr_event": "",
+      "nostr_relays_ok": 0,
+      "original_text": "",
+      "published_id": "",
+      "reject_reason": "",
+      "score": 5.74,
+      "status": "pending",
+      "target_author": "healthylifeMD",
+      "target_id": "2102133790067818547",
+      "target_text": "@PeptideFrontier Mechanistic elegance still needs outcome data. Appetite, glycemia, lean mass and adverse effects can move in different directions, so the useful comparison is the patient full benefit risk ledger.",
+      "telegram_message": 0,
+      "text": "The SURMOUNT-1 Phase 3 trial (2022) showed tirzepatide led to a mean weight reduction of 22.5% at 72 weeks with the highest dose, compared to 3.1% with placebo, in adults with obesity or overweight. This was in addition to glycemic control."
     }
   ],
-  "updated": "2026-09-21T23:35:37.711247+00:00"
+  "updated": "2026-09-22T00:12:20.908556+00:00"
 }

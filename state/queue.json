@@ -1,9 +1,9 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 3,
+    "expired": 4,
     "failed": 0,
-    "pending": 1,
+    "pending": 0,
     "published": 0,
     "rejected": 0
   },
@@ -81,7 +81,7 @@
       "action": "reply",
       "conversation_id": "2102113785062232416",
       "created": "2026-09-22T00:12:19.668851+00:00",
-      "decided_at": "",
+      "decided_at": "2026-09-22T12:49:17.059068+00:00",
       "decided_by": "",
       "decided_via": "",
       "github_issue": 12,
@@ -93,7 +93,7 @@
       "published_id": "",
       "reject_reason": "",
       "score": 5.74,
-      "status": "pending",
+      "status": "expired",
       "target_author": "healthylifeMD",
       "target_id": "2102133790067818547",
       "target_text": "@PeptideFrontier Mechanistic elegance still needs outcome data. Appetite, glycemia, lean mass and adverse effects can move in different directions, so the useful comparison is the patient full benefit risk ledger.",
@@ -101,5 +101,5 @@
       "text": "The SURMOUNT-1 Phase 3 trial (2022) showed tirzepatide led to a mean weight reduction of 22.5% at 72 weeks with the highest dose, compared to 3.1% with placebo, in adults with obesity or overweight. This was in addition to glycemic control."
     }
   ],
-  "updated": "2026-09-22T07:25:37.948451+00:00"
+  "updated": "2026-09-22T12:49:18.785100+00:00"
 }

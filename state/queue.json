@@ -3,7 +3,7 @@
     "approved": 0,
     "expired": 4,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "published": 0,
     "rejected": 0
   },
@@ -99,7 +99,30 @@
       "target_text": "@PeptideFrontier Mechanistic elegance still needs outcome data. Appetite, glycemia, lean mass and adverse effects can move in different directions, so the useful comparison is the patient full benefit risk ledger.",
       "telegram_message": 0,
       "text": "The SURMOUNT-1 Phase 3 trial (2022) showed tirzepatide led to a mean weight reduction of 22.5% at 72 weeks with the highest dose, compared to 3.1% with placebo, in adults with obesity or overweight. This was in addition to glycemic control."
+    },
+    {
+      "action": "reply",
+      "conversation_id": "2099576564866310624",
+      "created": "2026-09-24T23:56:07.463293+00:00",
+      "decided_at": "",
+      "decided_by": "",
+      "decided_via": "",
+      "github_issue": 13,
+      "id": "2c8871eedddc",
+      "kind": "mention",
+      "nostr_event": "",
+      "nostr_relays_ok": 0,
+      "original_text": "",
+      "published_id": "",
+      "reject_reason": "",
+      "score": 4.6,
+      "status": "pending",
+      "target_author": "peptideindexhq",
+      "target_id": "2099586257303060716",
+      "target_text": "@PeptideFrontier Appreciate the honest grade \u2014 BPC-157 angiogenesis and tendon claims are still mostly preclinical. Calling for human trials instead of overselling rodent data is how the category earns trust.",
+      "telegram_message": 0,
+      "text": "BPC-157's pro-angiogenic effects are consistently observed across multiple rodent models, including ischemic limb and wound healing. However, the precise mechanisms, such as VEGF pathway modulation, require further elucidation in human studies to confirm translatability."
     }
   ],
-  "updated": "2026-09-24T23:46:56.504764+00:00"
+  "updated": "2026-09-24T23:56:07.971827+00:00"
 }

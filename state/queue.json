@@ -1,9 +1,9 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 4,
+    "expired": 5,
     "failed": 0,
-    "pending": 2,
+    "pending": 1,
     "published": 0,
     "rejected": 0
   },
@@ -104,7 +104,7 @@
       "action": "reply",
       "conversation_id": "2099576564866310624",
       "created": "2026-09-24T23:56:07.463293+00:00",
-      "decided_at": "",
+      "decided_at": "2026-09-25T14:43:35.762970+00:00",
       "decided_by": "",
       "decided_via": "",
       "github_issue": 13,
@@ -116,7 +116,7 @@
       "published_id": "",
       "reject_reason": "",
       "score": 4.6,
-      "status": "pending",
+      "status": "expired",
       "target_author": "peptideindexhq",
       "target_id": "2099586257303060716",
       "target_text": "@PeptideFrontier Appreciate the honest grade \u2014 BPC-157 angiogenesis and tendon claims are still mostly preclinical. Calling for human trials instead of overselling rodent data is how the category earns trust.",
@@ -147,5 +147,5 @@
       "text": "The SURMOUNT-1 Phase 3 trial (2022) showed tirzepatide led to a mean weight reduction of 22.5% at 72 weeks at the highest dose, with 89% of participants achieving at least 5% weight loss. This was a placebo-controlled, double-blind study (n=2539)."
     }
   ],
-  "updated": "2026-09-25T13:43:50.074341+00:00"
+  "updated": "2026-09-25T14:43:37.110456+00:00"
 }

@@ -419,6 +419,13 @@
       "topic": "FDA enforcement against compounded/research peptides marketed to consumers",
       "text": "The FDA is increasing scrutiny of \"research peptides\" sold to consumers. A 2026 paper highlights \"emerging public health risks\" from unregulated online sales and gray-market access. This signals tighter enforcement ahead.",
       "tweet_id": "2103902799679705155"
+    },
+    {
+      "date": "2026-09-27T18:13:11Z",
+      "pillar": "numeracy",
+      "topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations",
+      "text": "10 mg of peptide in 1 mL vs 3 mL of water results in wildly different concentrations. 10mg/mL is 3x more potent per unit than 10mg/3mL. Precision in reconstitution volume is critical for accurate dosing, as a 2024 analysis of online peptide products highlights.",
+      "tweet_id": "2104273109381447707"
     }
   ]
 }

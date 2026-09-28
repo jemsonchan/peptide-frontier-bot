@@ -24,7 +24,7 @@ This repository contains the core code that determines which posts a viewer sees
 - **[Under the Hood](#under-the-hood-label-transparency-tool).** Reports now include information about whether one's account or posts have had their visibility limited because of required compliance with law(s). For example, you'll be able to see if any of your posts were withheld from showing in a country following a legal demand — and which country.
 ### August 14th, 2026
 Notable updates:
-- **How weights work.** There's a common misconception about how weights related to actions (e.g. Like, Share, Block, Report, etc) work in ranking. The weights scale the predicted probabilities of such actions (or predicted continuous values, e.g. dwell time) — they do *not* scale the raw engagement counts, so e.g. it'd be incorrect to see that a report has 468 times higher weight than a like and conclude that e.g. "1 report cancels out 468 likes". The weights are a multiple on your own predicted probability of Liking, Reporting, etc, which is substantially driven by your own behavior. We've [added comments](home-mixer/params/param.rs) [to the code](home-mixer/scorers/ranking_scorer.rs) so that LLMs or people reading it are more likely to understand it correctly.
+- **How weights work.** There's a common misconception about how weights related to actions (e.g. Like, Share, Block, Report, etc) work in ranking. The weights scale the predicted probabilities of such actions (or predicted continuous values, e.g. dwell time) — they do *not* scale the raw engagement counts, so e.g. it'd be incorrect to see that a report has 468 times higher weight than a like and conclude that e.g. "1 report cancels out 468 likes". The weights are a multiple on your own predicted probability of Liking, Reporting, etc, which is substantially driven by your own behavior. We've [added comments](home-mixer/params/param.rs) [to the code](xai-value-model/scoring.rs) so that LLMs or people reading it are more likely to understand it correctly.
 - **Brazil 2026 Elections.** As [announced by X](https://x.com/XBR/status/2088341967864320507?s=20), in accordance with Brazilian electoral law, For You now runs `Brazil2026ElectionFilter`, which removes posts from accounts reported to Brazil's Electoral Court for the 2026 election, unless the viewer explicitly follows the account. *(Account list updated August 27, 2026.)* A benefit of open-source is that you can see that changes like this exist, and exactly how they work — take a [look at the code](home-mixer/filters/brazil_2026_election_filter.rs).
 ### August 13th, 2026
 This release:
@@ -90,7 +90,7 @@ Ranking sets the order. Whether a post can be shown at all is decided separately
 │  ┌────────────────────────────────────────────────────────────────────────────────────┐  │
 │  │ 5. SCORING                                                                         │  │
 │  │    <a href="home-mixer/scorers/phoenix_scorer.rs">PhoenixScorer</a>   a probability for each action the viewer might take             │  │
-│  │    <a href="home-mixer/scorers/ranking_scorer.rs">RankingScorer</a>   weighted sum, then repeated-author decay, an                    │  │
+│  │    <a href="home-mixer/scorers/value_model.rs">RankingScorer</a>   weighted sum, then repeated-author decay, an                    │  │
 │  │                    out-of-network discount, a new-author boost                     │  │
 │  │    <a href="home-mixer/scorers/vm_ranker.rs">VMRanker</a>        calls the reranking service in <a href="vm-ranker/">vm-ranker/</a>                       │  │
 │  └────────────────────────────────────────────────────────────────────────────────────┘  │
@@ -236,7 +236,7 @@ These produce the scores and labels that Visibility Filtering reads.
 | [`abuse-enforcement-service/`](abuse-enforcement-service/)     | Acts on model scores about an account rather than on events: labels it or its posts, challenges it, or suspends it.                                                                                           |
 | [`safety-label-user-agg/`](safety-label-user-agg/)             | Labels an account for what its posts collected.                                                                                                                                                               |
 | [`visibility-filtering-client/`](visibility-filtering-client/) | The client callers use to reach visibility filtering, and the post safety-label types it answers with.                                                                                                        |
-| [`under-the-hood/`](under-the-hood/)                           | Builds the per-account [Under the Hood](#under-the-hood-label-transparency-tool) report: daily jobs collect the labels applied to an account and its posts, which the serving layer aggregates over a period. |
+| [`under-the-hood/`](under-the-hood/)                           | Builds the per-account [Under the Hood](#under-the-hood-label-transparency-tool) report: daily jobs collect the labels applied to an account and its posts, which the serving layer aggregates over a period, and displays as a [page](under-the-hood/jetfuel/) or JSON file. |
 | [`takedowns/`](takedowns/)                                     | Produces the takedown-reason list that [`rules/context.rs`](visibility-filtering/rules/context.rs) applies: the tweet entity service merges a post's own reasons with its author's account-level ones. |
 ---
 ## How It Works
@@ -253,7 +253,7 @@ Negative      not interested · mute author · block author · report · not dwe
 ```
 Final Score = Σ (weight_i × P(action_i))
 ```
-Positive actions carry positive weights, negative actions negative ones. The weights are in [`home-mixer/params/param.rs`](home-mixer/params/param.rs); the arithmetic is in [`home-mixer/scorers/ranking_scorer.rs`](home-mixer/scorers/ranking_scorer.rs).
+Positive actions carry positive weights, negative actions negative ones. The weights are in [`home-mixer/params/param.rs`](home-mixer/params/param.rs); the arithmetic is in [`xai-value-model/scoring.rs`](xai-value-model/scoring.rs).
 There is a common misconception to be aware of about the weights: they scale the predicted probabilities (or predicted continuous values, e.g. dwell time) — they do *not* scale the raw engagement counts, so e.g. it'd be incorrect to see that a report has 468 times higher weight than a like and conclude that e.g. "1 report cancels out 468 likes". The weights are a multiple on your own predicted probability of Liking, Reporting, etc, which is substantially driven by your own behavior.
 Three adjustments follow:
 - **Author Diversity**: each post after an author's first is multiplied by a decaying factor, down to a floor.
@@ -311,7 +311,7 @@ We believe the combination of code + transparent outputs is a powerful one for p
 ---
 ## Under the Hood Label Transparency Tool
 We're piloting a new transparency tool that lets people see aggregate statistics about the visibility-impacting labels on their account and posts. Paired with the code in this repository, we believe this gives people valuable insight into the visibility of their posts.
-The tool is [available here](https://x.com/i/under_the_hood) — we'll be shaping it based on your feedback and expanding availability over time. The jobs and serving code that build the report are in [`under-the-hood/`](under-the-hood/).
+The tool is [available here](https://x.com/i/jf/under_the_hood) — we'll be shaping it based on your feedback and expanding availability over time. The jobs and serving code that build the report are in [`under-the-hood/`](under-the-hood/). The page that renders it is in [`under-the-hood/jetfuel/`](under-the-hood/jetfuel/).
 ---
 ## Key Design Decisions
 ### 1. Multi-Action Prediction

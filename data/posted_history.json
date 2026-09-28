@@ -426,6 +426,13 @@
       "topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations",
       "text": "10 mg of peptide in 1 mL vs 3 mL of water results in wildly different concentrations. 10mg/mL is 3x more potent per unit than 10mg/3mL. Precision in reconstitution volume is critical for accurate dosing, as a 2024 analysis of online peptide products highlights.",
       "tweet_id": "2104273109381447707"
+    },
+    {
+      "date": "2026-09-28T20:28:08Z",
+      "pillar": "mechanism",
+      "topic": "TB-500 / thymosin beta-4 and actin regulation in tissue repair",
+      "text": "TB-500 (thymosin beta-4) promotes tissue repair by regulating actin, a key component of cell structure and movement. It sequesters actin monomers, influencing cell migration and wound healing, as described in 2026 reviews on therapeutic peptides in orthopaedics.",
+      "tweet_id": "2104669472791437401"
     }
   ]
 }

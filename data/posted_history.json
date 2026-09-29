@@ -433,6 +433,13 @@
       "topic": "TB-500 / thymosin beta-4 and actin regulation in tissue repair",
       "text": "TB-500 (thymosin beta-4) promotes tissue repair by regulating actin, a key component of cell structure and movement. It sequesters actin monomers, influencing cell migration and wound healing, as described in 2026 reviews on therapeutic peptides in orthopaedics.",
       "tweet_id": "2104669472791437401"
+    },
+    {
+      "date": "2026-09-29T19:14:09Z",
+      "pillar": "numeracy",
+      "topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations",
+      "text": "Reconstituting 10 mg of peptide in 1 mL vs 3 mL yields starkly different concentrations. A 2024 analysis of online peptide products underscores: 10 mg/mL means 10x the concentration of 10 mg/10mL. Volume matters for precise dosing.",
+      "tweet_id": "2105013271489139117"
     }
   ]
 }

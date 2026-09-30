@@ -1,36 +1,13 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 6,
+    "expired": 5,
     "failed": 0,
     "pending": 0,
     "published": 0,
     "rejected": 0
   },
   "drafts": [
-    {
-      "action": "reply",
-      "conversation_id": "2094428919982068121",
-      "created": "2026-08-31T16:08:29.975950+00:00",
-      "decided_at": "2026-09-01T09:28:19.530404+00:00",
-      "decided_by": "",
-      "decided_via": "",
-      "github_issue": 7,
-      "id": "5d7aacb069df",
-      "kind": "outsider",
-      "nostr_event": "",
-      "nostr_relays_ok": 0,
-      "original_text": "",
-      "published_id": "",
-      "reject_reason": "",
-      "score": 4.55,
-      "status": "expired",
-      "target_author": "jjh_lifts",
-      "target_id": "2094428919982068121",
-      "target_text": "Retatrutide hits a third hormone receptor that tirzepatide and semaglutide never touch, and that's the whole reason it's outperforming both of them.\n\nGLP-1 slows your stomach and cuts your appetite, and GIP helps your body use the nutrients from your food better. Tirzepatide https://t.co/lZba9lhFt7",
-      "telegram_message": 0,
-      "text": "Retatrutide is a triple agonist for GLP-1, GIP, and glucagon receptors. Glucagon receptor agonism may increase energy expenditure, contributing to its observed efficacy in Phase 2 trials."
-    },
     {
       "action": "reply",
       "conversation_id": "2099576564866310624",
@@ -147,5 +124,5 @@
       "text": "The SURMOUNT-1 Phase 3 trial (2022) showed tirzepatide led to a mean weight reduction of 22.5% at 72 weeks at the highest dose, with 89% of participants achieving at least 5% weight loss. This was a placebo-controlled, double-blind study (n=2539)."
     }
   ],
-  "updated": "2026-09-30T14:58:44.068237+00:00"
+  "updated": "2026-09-30T18:07:17.095558+00:00"
 }

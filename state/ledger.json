@@ -30,11 +30,12 @@
       "post:2106133787746722032",
       "post:2106133780989624427",
       "post:2106133776984166900",
-      "post:2106126971029856648"
+      "post:2106126971029856648",
+      "post:2106442124271010002"
     ]
   },
   "conversation_log": {},
-  "day_spend": "0.062000",
+  "day_spend": "0.063000",
   "entries": [
     {
       "action": "read_mentions",
@@ -1843,13 +1844,21 @@
       "ref": "(retatrutide OR tirzepatide OR semagluti",
       "ts": "2026-10-03T00:35:02.268649+00:00",
       "units": 10
+    },
+    {
+      "action": "read_own_timeline",
+      "cost": "0.001",
+      "note": "5 own",
+      "ref": "2072968799972728832",
+      "ts": "2026-10-03T19:49:14.915527+00:00",
+      "units": 1
     }
   ],
   "joined_conversations": {},
   "kind_counts": {},
   "month": "2026-10",
-  "month_spend": "0.188000",
+  "month_spend": "0.189000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-10-03T17:36:14.588869+00:00"
+  "updated": "2026-10-03T19:49:17.722871+00:00"
 }

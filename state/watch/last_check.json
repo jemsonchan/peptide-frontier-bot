@@ -1,6 +1,8 @@
 {
-  "checked": "2026-09-28T17:43:39.085085+00:00",
+  "checked": "2026-10-05T18:35:13.056512+00:00",
   "changed": [
-    "x-algorithm-readme"
+    "x-algorithm-readme",
+    "x-api-pricing",
+    "x-api-rate-limits"
   ]
 }

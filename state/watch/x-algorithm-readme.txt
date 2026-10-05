@@ -25,7 +25,7 @@ This repository contains the core code that determines which posts a viewer sees
 ### August 14th, 2026
 Notable updates:
 - **How weights work.** There's a common misconception about how weights related to actions (e.g. Like, Share, Block, Report, etc) work in ranking. The weights scale the predicted probabilities of such actions (or predicted continuous values, e.g. dwell time) — they do *not* scale the raw engagement counts, so e.g. it'd be incorrect to see that a report has 468 times higher weight than a like and conclude that e.g. "1 report cancels out 468 likes". The weights are a multiple on your own predicted probability of Liking, Reporting, etc, which is substantially driven by your own behavior. We've [added comments](home-mixer/params/param.rs) [to the code](xai-value-model/scoring.rs) so that LLMs or people reading it are more likely to understand it correctly.
-- **Brazil 2026 Elections.** As [announced by X](https://x.com/XBR/status/2088341967864320507?s=20), in accordance with Brazilian electoral law, For You now runs `Brazil2026ElectionFilter`, which removes posts from accounts reported to Brazil's Electoral Court for the 2026 election, unless the viewer explicitly follows the account. *(Account list updated August 27, 2026.)* A benefit of open-source is that you can see that changes like this exist, and exactly how they work — take a [look at the code](home-mixer/filters/brazil_2026_election_filter.rs).
+- **Brazil 2026 Elections.** As [announced by X](https://x.com/XBR/status/2088341967864320507?s=20), in accordance with Brazilian electoral law, For You now runs `Brazil2026ElectionFilter`, which removes posts from accounts reported to Brazil's Electoral Court for the 2026 election, unless the viewer explicitly follows the account. *(Account list updated September 29, 2026.)* A benefit of open-source is that you can see that changes like this exist, and exactly how they work — take a [look at the code](home-mixer/filters/brazil_2026_election_filter.rs).
 ### August 13th, 2026
 This release:
 - Adds key configuration parameters (including weights used to blend predicted action values into a score for a post)
@@ -154,6 +154,7 @@ Stages can be switched on and off individually, with defaults in [`home-mixer/pa
 │                                                                                          │
 │    <a href="abuse-enforcement-service/">abuse-enforcement-service/</a>  reads model scores about an account. Its                  │
 │       rules label the account or its posts, challenge it, or suspend it.                 │
+│       It does not re-apply an action overturned on appeal (<a href="abuse-ledger-service/">abuse-ledger-service/</a>).       │
 │                                                                                          │
 │    <a href="safety-label-user-agg/">safety-label-user-agg/</a>  labels an account for what its posts collected.               │
 │                                                                                          │
@@ -234,6 +235,7 @@ These produce the scores and labels that Visibility Filtering reads.
 | [`botmaker/`](botmaker/)                                       | That rule engine: the language rules are written in, its compiler, and its runtime.                                                                                                                           |
 | [`botmaker-rules/`](botmaker-rules/)                           | The rules `scarecrow` loads. To reduce the risk of gaming to circumvent these systems, some rules aren't currently in this repository.                                                                        |
 | [`abuse-enforcement-service/`](abuse-enforcement-service/)     | Acts on model scores about an account rather than on events: labels it or its posts, challenges it, or suspends it.                                                                                           |
+| [`abuse-ledger-service/`](abuse-ledger-service/)               | Answers whether an account has an active appeal hold: when an enforcement is overturned on appeal, `abuse-enforcement-service` does not re-apply that action for a fixed period, set per appeal queue.        |
 | [`safety-label-user-agg/`](safety-label-user-agg/)             | Labels an account for what its posts collected.                                                                                                                                                               |
 | [`visibility-filtering-client/`](visibility-filtering-client/) | The client callers use to reach visibility filtering, and the post safety-label types it answers with.                                                                                                        |
 | [`under-the-hood/`](under-the-hood/)                           | Builds the per-account [Under the Hood](#under-the-hood-label-transparency-tool) report: daily jobs collect the labels applied to an account and its posts, which the serving layer aggregates over a period, and displays as a [page](under-the-hood/jetfuel/) or JSON file. |
@@ -277,10 +279,12 @@ Three adjustments follow:
 | `PreviouslyServedPostsFilter`     | Posts already served earlier in the session                                                       |
 | `MutedKeywordFilter`              | Posts matching the viewer's muted keywords                                                        |
 | `AuthorSocialgraphFilter`         | Posts from accounts the viewer blocks or mutes                                                    |
+| `Brazil2026ElectionFilter`        | Posts from accounts reported to Brazil's Electoral Court — see [Notable Updates](#august-14th-2026) |
 | `VideoFilter`                     | Video posts, when the request excludes video                                                      |
 | `TopicIdsFilter`                  | Posts outside the requested topics, and posts in excluded topics                                  |
 | `NewUserMinEngagementFilter`      | For new accounts, out-of-network posts below an engagement threshold                              |
 | `InventoryHoldoutFilter`          | A configured percentage of posts, chosen deterministically per post and viewer                    |
+| `FavHoldoutFilter`                | A percentage of posts set by each post's like count, chosen deterministically per post and viewer |
 Already-seen posts are handled twice over: `ThunderSource` is passed the list and leaves them out, the other sources are not, so their repeats are caught by the filters above.
 **Post-Selection Filters:**
 | Filter                    | Removes                                                        |

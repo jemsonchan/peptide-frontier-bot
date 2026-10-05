@@ -475,6 +475,13 @@
       "topic": "How to read an insulin syringe: units on the barrel vs the volume you actually draw",
       "text": "An insulin syringe's \"units\" are a volume measurement. A U-100 syringe means 100 units = 1 mL. So 20 units = 0.2 mL. Always confirm your peptide's mg/mL concentration, then calculate the *volume* to draw for your dose. Units ≠ milligrams.",
       "tweet_id": "2106807572606947435"
+    },
+    {
+      "date": "2026-10-05T21:26:01Z",
+      "pillar": "mechanism",
+      "topic": "GHK-Cu copper peptide and collagen/skin remodeling signaling",
+      "text": "GHK-Cu signals skin remodeling by influencing collagen and elastin production, and modulating inflammation. It acts as a signaling peptide, not just a copper delivery system, as detailed in a 2026 review on bioactive metallopeptides.",
+      "tweet_id": "2107220760511099215"
     }
   ]
 }

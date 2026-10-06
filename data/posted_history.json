@@ -482,6 +482,13 @@
       "topic": "GHK-Cu copper peptide and collagen/skin remodeling signaling",
       "text": "GHK-Cu signals skin remodeling by influencing collagen and elastin production, and modulating inflammation. It acts as a signaling peptide, not just a copper delivery system, as detailed in a 2026 review on bioactive metallopeptides.",
       "tweet_id": "2107220760511099215"
+    },
+    {
+      "date": "2026-10-06T19:23:13Z",
+      "pillar": "numeracy",
+      "topic": "Why IU (units) are not milligrams, and how insulin-syringe markings mislead people",
+      "text": "Insulin syringes' \"units\" measure volume (e.g., U-100 means 100 units = 1 mL). They don't measure milligrams of peptide. You must calculate the *volume* (in units) for your desired dose based on your peptide's specific mg/mL concentration. Units ≠ mg.",
+      "tweet_id": "2107552265108111495"
     }
   ]
 }

@@ -489,6 +489,13 @@
       "topic": "Why IU (units) are not milligrams, and how insulin-syringe markings mislead people",
       "text": "Insulin syringes' \"units\" measure volume (e.g., U-100 means 100 units = 1 mL). They don't measure milligrams of peptide. You must calculate the *volume* (in units) for your desired dose based on your peptide's specific mg/mL concentration. Units ≠ mg.",
       "tweet_id": "2107552265108111495"
+    },
+    {
+      "date": "2026-10-07T19:50:23Z",
+      "pillar": "study",
+      "topic": "A recent trial on GLP-1 and cardiovascular or metabolic outcomes",
+      "text": "GLP-1 receptor agonists consistently improve cardiovascular outcomes. A \"review\" (2026) highlights reduced major adverse cardiac events, regardless of weight loss. This indicates a direct cardioprotective effect beyond metabolic benefits, transforming care.",
+      "tweet_id": "2107921489760584020"
     }
   ]
 }

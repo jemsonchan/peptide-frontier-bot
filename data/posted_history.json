@@ -496,6 +496,13 @@
       "topic": "A recent trial on GLP-1 and cardiovascular or metabolic outcomes",
       "text": "GLP-1 receptor agonists consistently improve cardiovascular outcomes. A \"review\" (2026) highlights reduced major adverse cardiac events, regardless of weight loss. This indicates a direct cardioprotective effect beyond metabolic benefits, transforming care.",
       "tweet_id": "2107921489760584020"
+    },
+    {
+      "date": "2026-10-08T19:45:58Z",
+      "pillar": "myth",
+      "topic": "Myth: peptides are 'natural' so they're side-effect-free",
+      "text": "Peptides are not \"natural\" and side-effect-free. They are powerful pharmaceuticals with known adverse events. Reviews in 2026 on incretin therapies highlight GI issues, pancreatitis, and other risks. Assume effects, not inertness.",
+      "tweet_id": "2108282764629868756"
     }
   ]
 }

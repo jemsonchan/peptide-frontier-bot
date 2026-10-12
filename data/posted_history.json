@@ -524,6 +524,13 @@
       "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
       "text": "A 1000x error: 1 milligram (mg) is 1000 micrograms (mcg). Mistaking mg for mcg can lead to a dangerous overdose. Always double-check your peptide vial and syringe labels. Precision is non-negotiable for safety.",
       "tweet_id": "2109354370286370889"
+    },
+    {
+      "date": "2026-10-12T22:01:55Z",
+      "pillar": "mechanism",
+      "topic": "Why glucagon agonism can increase energy expenditure, not just suppress appetite",
+      "text": "Glucagon agonism isn't just about appetite. It can increase energy expenditure and fat burning by activating glucagon receptors in the liver and adipose tissue. This direct metabolic effect differentiates it from GLP-1 alone, per 2026 reviews.",
+      "tweet_id": "2109766520859435263"
     }
   ]
 }

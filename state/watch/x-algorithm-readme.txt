@@ -41,7 +41,7 @@ This update is also paired with a new [**Under the Hood**](#under-the-hood-label
 ## Overview
 The For You feed is assembled per request. Posts come from two places:
 1. **In-Network** — [`thunder/`](thunder/) keeps recent posts from the accounts a viewer follows in memory
-2. **Out-of-Network** — [`phoenix/`](phoenix/) retrieval and [`simclusters/`](simclusters/) find posts from accounts the viewer does not follow
+2. **Out-of-Network** — [`phoenix/`](phoenix/) retrieval and [`simclusters/`](simclusters/) find posts from accounts the viewer does not follow. [`popular_posts_source`](home-mixer/sources/popular_posts_source.rs) adds a shared list of popular recent posts.
 Both are ranked together by the same model. **Phoenix** reads the viewer's recent engagement history and predicts, for each post, how likely the viewer is to take each action on it. Those predictions are combined into one score using weights held in the code — see [Scoring and Ranking](#scoring-and-ranking).
 Two pipelines do the work. The **Post Pipeline** finds, ranks and filters posts. The **Blending Pipeline** wraps it and adds what the model does not rank: ads, Who to Follow recommendations, prompts.
 Ranking sets the order. Whether a post can be shown at all is decided separately, by [`visibility-filtering/`](visibility-filtering/), from the viewer's own actions such as blocks and mutes and from labels that other systems here attach to posts and accounts.
@@ -70,7 +70,7 @@ Ranking sets the order. Whether a post can be shown at all is decided separately
 │  │    │ IN-NETWORK                    │ │ OUT-OF-NETWORK                         │    │  │
 │  │    │ <a href="thunder/">Thunder</a>                       │ │ <a href="phoenix/">Phoenix retrieval</a>   retrieval model    │    │  │
 │  │    │   recent posts from the       │ │ <a href="simclusters/">SimClusters</a>         cluster similarity │    │  │
-│  │    │   accounts the viewer follows │ │                                        │    │  │
+│  │    │   accounts the viewer follows │ │ <a href="home-mixer/sources/popular_posts_source.rs">Popular posts</a>       shared list        │    │  │
 │  │    └───────────────────────────────┘ └────────────────────────────────────────┘    │  │
 │  └────────────────────────────────────────────────────────────────────────────────────┘  │
 │                                            ▼                                             │
@@ -166,9 +166,10 @@ Stages can be switched on and off individually, with defaults in [`home-mixer/pa
                                              ▼
 ┌───────────────────  4. VISIBILITY FILTERING   <a href="visibility-filtering/">visibility-filtering/</a>  ────────────────────┐
 │                                                                                          │
-│    for each post and viewer, one of three answers:                                       │
+│    for each post and viewer, one of four answers:                                        │
 │                                                                                          │
 │       ALLOW          show the post normally                                              │
+│       NOTICE         show the post with a notice attached to it                          │
 │       INTERSTITIAL   show it behind an interstitial the viewer can tap                   │
 │                      through, e.g. for adult or graphic media                            │
 │       DROP           do not show it                                                      │
@@ -189,6 +190,8 @@ Stages can be switched on and off individually, with defaults in [`home-mixer/pa
 │               itself dropped                                                             │
 │    interstitial  ──►  the post stays in the feed; nothing in this                        │
 │               repository draws the interstitial                                          │
+│    notice  ──►  the post stays in the feed; nothing in this                              │
+│               repository draws the notice                                                │
 │                                                                                          │
 └──────────────────────────────────────────────────────────────────────────────────────────┘
 </pre>
@@ -200,11 +203,12 @@ Stages can be switched on and off individually, with defaults in [`home-mixer/pa
 | [`home-mixer/`](home-mixer/)                 | Builds the For You feed: the pipeline stages, the scoring weights, and calls other systems on the request path.                                                      |
 | [`candidate-pipeline/`](candidate-pipeline/) | The framework `home-mixer` is built on. Defines the stage types — source, hydrator, filter, scorer, selector, side effect — and runs them, in parallel where it can. |
 ### Candidate Sources
-| Component                        | What it does                                                                                              |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| [`thunder/`](thunder/)           | Holds recent posts in memory as they are published, and returns those from the accounts a viewer follows. |
-| [`phoenix/`](phoenix/) retrieval | Embeds the viewer and each post as vectors, and returns the posts nearest the viewer.                     |
-| [`simclusters/`](simclusters/)   | Clusters accounts and posts by who engages with what, then uses the clusters to find candidates.          |
+| Component                                                               | What it does                                                                                              |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [`thunder/`](thunder/)                                                  | Holds recent posts in memory as they are published, and returns those from the accounts a viewer follows. |
+| [`phoenix/`](phoenix/) retrieval                                        | Embeds the viewer and each post as vectors, and returns the posts nearest the viewer.                     |
+| [`simclusters/`](simclusters/)                                          | Clusters accounts and posts by who engages with what, then uses the clusters to find candidates.          |
+| [`popular_posts_source.rs`](home-mixer/sources/popular_posts_source.rs) | A shared list of popular recent posts, initially from the most-followed active accounts.                                     |
 ### Retrieval Index
 | Component                                            | What it does                                                                                          |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -247,7 +251,7 @@ Phoenix predicts a probability for each action:
 ```
 Engagement    favorite · reply · repost · quote · share · share via DM · share via copy link
 Clicks        post · profile · link · photo expand · video open · quoted post
-Attention     video quality view · dwell · dwell time · click dwell time · active seconds
+Attention     video quality view · dwell · dwell time · click dwell time · video continuation seconds · profile visit seconds
 Author        follow author
 Negative      not interested · mute author · block author · report · not dwelled
 ```

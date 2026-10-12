@@ -3,7 +3,7 @@
     "approved": 0,
     "expired": 6,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "published": 0,
     "rejected": 0
   },
@@ -145,7 +145,30 @@
       "target_text": "@PeptideFrontier Mechanistic elegance still needs outcome data. Appetite, glycemia, lean mass and adverse effects can move in different directions, so the useful comparison is the patient full benefit risk ledger.",
       "telegram_message": 0,
       "text": "The first Phase 3 trial for tirzepatide in obesity, SURMOUNT-1 (2022), reported a mean weight reduction of 20.9% at 72 weeks with the 15mg dose, compared to placebo. This trial included 2539 adults without diabetes."
+    },
+    {
+      "action": "reply",
+      "conversation_id": "2105372646368014484",
+      "created": "2026-10-12T21:23:54.334388+00:00",
+      "decided_at": "",
+      "decided_by": "",
+      "decided_via": "",
+      "github_issue": 19,
+      "id": "220382951391",
+      "kind": "mention",
+      "nostr_event": "",
+      "nostr_relays_ok": 0,
+      "original_text": "",
+      "published_id": "",
+      "reject_reason": "",
+      "score": 4.86,
+      "status": "pending",
+      "target_author": "peptidestr8talk",
+      "target_id": "2105377353341845553",
+      "target_text": "@PeptideFrontier Amycretin is an interesting example of why people are watching multi-pathway drugs: amylin and GLP-1 may hit appetite and glucose through complementary signals. The early result is encouraging, but the next useful readout is whether the effect holds up with longer follow-up and",
+      "telegram_message": 0,
+      "text": "Amycretin's dual agonism targets both GLP-1 and amylin receptors. In a Phase 2 trial (n=596), participants achieved 13.1% mean weight loss at 20 weeks, compared to 1.1% for placebo. Longer follow-up is needed to assess sustained efficacy and safety."
     }
   ],
-  "updated": "2026-10-12T19:39:46.845697+00:00"
+  "updated": "2026-10-12T21:23:55.334074+00:00"
 }

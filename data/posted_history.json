@@ -545,6 +545,13 @@
       "topic": "A recent BPC-157 study — what it actually measured and in what model",
       "text": "A 2026 review on BPC-157 (\"From Regeneration to Analgesia\") notes significant findings in *animal models* for tissue repair and pain. It *does not* detail human trials, nor does it establish specific dosing or efficacy for humans. Current evidence remains preclinical.",
       "tweet_id": "2110437128295391675"
+    },
+    {
+      "date": "2026-10-15T18:09:13Z",
+      "pillar": "myth",
+      "topic": "Myth: you can trust dosing from a viral screenshot or comment thread",
+      "text": "Viral screenshots or comments are unreliable for peptide dosing. A 2026 survey on GLP-1 experiences notes widespread misinformation. Always refer to published clinical trials or consult a licensed professional for accurate, evidence-based dosing specific to your compound.",
+      "tweet_id": "2110795135176847518"
     }
   ]
 }

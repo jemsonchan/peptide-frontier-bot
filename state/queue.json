@@ -1,9 +1,9 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 8,
+    "expired": 9,
     "failed": 0,
-    "pending": 1,
+    "pending": 0,
     "published": 0,
     "rejected": 0
   },
@@ -196,7 +196,7 @@
       "action": "reply",
       "conversation_id": "2110100465983635949",
       "created": "2026-10-15T13:23:04.446212+00:00",
-      "decided_at": "",
+      "decided_at": "2026-10-16T01:29:37.615565+00:00",
       "decided_by": "",
       "decided_via": "",
       "github_issue": 21,
@@ -208,7 +208,7 @@
       "published_id": "",
       "reject_reason": "",
       "score": 5.35,
-      "status": "pending",
+      "status": "expired",
       "target_author": "snappeptides",
       "target_id": "2110439105943527775",
       "target_text": "@PeptideFrontier Fair point on BW. I'd add that even with the preservative, how you handle it matters, I keep reconstituted vials in the fridge away from light and try not to leave them sitting out on the bench.",
@@ -216,5 +216,5 @@
       "text": "Benzyl alcohol's bacteriostatic effect is concentration-dependent, typically 0.9% in BW. Higher concentrations can be irritating, while lower ones may not fully inhibit growth, especially with repeated needle entries."
     }
   ],
-  "updated": "2026-10-15T23:44:03.798859+00:00"
+  "updated": "2026-10-16T01:29:39.239084+00:00"
 }

@@ -1,36 +1,13 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 9,
+    "expired": 8,
     "failed": 0,
     "pending": 0,
     "published": 0,
     "rejected": 0
   },
   "drafts": [
-    {
-      "action": "reply",
-      "conversation_id": "2099576564866310624",
-      "created": "2026-09-17T13:24:55.910444+00:00",
-      "decided_at": "2026-09-18T05:10:05.982420+00:00",
-      "decided_by": "",
-      "decided_via": "",
-      "github_issue": 9,
-      "id": "2f6674f9ba3f",
-      "kind": "mention",
-      "nostr_event": "",
-      "nostr_relays_ok": 0,
-      "original_text": "",
-      "published_id": "",
-      "reject_reason": "",
-      "score": 5.01,
-      "status": "expired",
-      "target_author": "peptideindexhq",
-      "target_id": "2099586257303060716",
-      "target_text": "@PeptideFrontier Appreciate the honest grade \u2014 BPC-157 angiogenesis and tendon claims are still mostly preclinical. Calling for human trials instead of overselling rodent data is how the category earns trust.",
-      "telegram_message": 0,
-      "text": "BPC-157's stability in gastric acid, unlike many peptides, suggests oral bioavailability. This was first observed in a 1998 rat study, though human pharmacokinetic data for oral BPC-157 is still absent from the literature."
-    },
     {
       "action": "reply",
       "conversation_id": "2099576564866310624",
@@ -216,5 +193,5 @@
       "text": "Benzyl alcohol's bacteriostatic effect is concentration-dependent, typically 0.9% in BW. Higher concentrations can be irritating, while lower ones may not fully inhibit growth, especially with repeated needle entries."
     }
   ],
-  "updated": "2026-10-17T13:01:27.982311+00:00"
+  "updated": "2026-10-17T15:55:34.146667+00:00"
 }

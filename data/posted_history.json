@@ -566,6 +566,13 @@
       "topic": "The 2026 obesity-drug pipeline: which readouts are still expected this year",
       "text": "The 2026 pipeline holds key readouts for obesity drugs beyond GLP-1s. Expect updates on novel mechanisms, including amylin and GIP/GLP-1/glucagon triple agonists, shaping future treatment landscapes. These are poised to offer distinct metabolic benefits.",
       "tweet_id": "2111501606319460435"
+    },
+    {
+      "date": "2026-10-18T17:12:04Z",
+      "pillar": "numeracy",
+      "topic": "Concentration = mass / volume: the one equation that prevents most dosing mistakes",
+      "text": "Dosing peptides safely: Concentration = mass ÷ volume. If 5 mg peptide is in 2 mL water, it's 2.5 mg/mL. To get 1 mg, you draw 0.4 mL. Always calculate your specific concentration (mg/mL) first to avoid errors.",
+      "tweet_id": "2111867917230874865"
     }
   ]
 }

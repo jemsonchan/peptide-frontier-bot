@@ -573,6 +573,13 @@
       "topic": "Concentration = mass / volume: the one equation that prevents most dosing mistakes",
       "text": "Dosing peptides safely: Concentration = mass ÷ volume. If 5 mg peptide is in 2 mL water, it's 2.5 mg/mL. To get 1 mg, you draw 0.4 mL. Always calculate your specific concentration (mg/mL) first to avoid errors.",
       "tweet_id": "2111867917230874865"
+    },
+    {
+      "date": "2026-10-19T19:44:32Z",
+      "pillar": "mechanism",
+      "topic": "How GIP receptor agonism complements GLP-1 in dual agonists like tirzepatide",
+      "text": "GIP receptor agonism (as in tirzepatide) complements GLP-1 by reducing gastric emptying *and* directly improving insulin sensitivity in tissues. This dual action targets metabolism more broadly than GLP-1 alone. (2026 reviews)",
+      "tweet_id": "2112268669724041479"
     }
   ]
 }

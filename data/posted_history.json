@@ -580,6 +580,13 @@
       "topic": "How GIP receptor agonism complements GLP-1 in dual agonists like tirzepatide",
       "text": "GIP receptor agonism (as in tirzepatide) complements GLP-1 by reducing gastric emptying *and* directly improving insulin sensitivity in tissues. This dual action targets metabolism more broadly than GLP-1 alone. (2026 reviews)",
       "tweet_id": "2112268669724041479"
+    },
+    {
+      "date": "2026-10-20T18:25:14Z",
+      "pillar": "numeracy",
+      "topic": "How to read an insulin syringe: units on the barrel vs the volume you actually draw",
+      "text": "An insulin syringe's \"units\" reflect the volume for *insulin* (U-100 means 100 units/mL). For other peptides, you must convert: 20 units on a U-100 syringe means 0.2 mL. Never assume units equal mg. Your math must be precise.",
+      "tweet_id": "2112611107860799489"
     }
   ]
 }

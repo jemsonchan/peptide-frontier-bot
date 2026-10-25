@@ -615,6 +615,13 @@
       "topic": "Compounding pharmacy landscape after semaglutide/tirzepatide shortages ended",
       "text": "Compounding pharmacies saw high demand during GLP-1 shortages. With supply stabilizing, questions arise about their role. Expect shifts as brand-name drugs become more accessible, per ongoing 2026 analyses of treatment lifecycles.",
       "tweet_id": null
+    },
+    {
+      "date": "2026-10-25T17:31:59Z",
+      "pillar": "numeracy",
+      "topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations",
+      "text": "Reconstitution math matters. A 10 mg vial in 1 mL of water means 10 mg/mL. The *same* 10 mg vial in 3 mL of water means 3.33 mg/mL. Completely different concentrations. Always divide peptide mass (mg) by diluent volume (mL) for accurate dosing.",
+      "tweet_id": null
     }
   ]
 }

@@ -28,9 +28,9 @@ x-rate-limit-reset: 1705420800
 ***
 ## Rate limit tables
 View the rate limit for each endpoint below. You can also see these limits in the [Developer Console](https://console.x.com).
-<Note>
-  Limits are shown per 15 minutes unless otherwise noted (e.g., "/24hrs" or "/sec").
-</Note>
+> [!NOTE]
+>
+> Limits are shown per 15 minutes unless otherwise noted (e.g., "/24hrs" or "/sec").
 ### Posts (25 endpoints)
 #### Tweets lookup
 | Method | Endpoint | Per App | Per User |
@@ -312,20 +312,18 @@ def make_request_with_backoff(url, headers):
 ```
 ***
 ## Best practices
-<CardGroup cols={2}>
-  <Card title="Cache responses" icon="database">
-    Store results locally to reduce repeated requests.
-  </Card>
-  <Card title="Use streaming" icon="signal-stream">
-    For real-time data, use filtered stream instead of polling.
-  </Card>
-  <Card title="Monitor headers" icon="gauge-high">
-    Track remaining requests to avoid hitting limits.
-  </Card>
-  <Card title="Spread requests" icon="clock">
-    Distribute requests across the time window.
-  </Card>
-</CardGroup>
+> **Cache responses**
+>
+> Store results locally to reduce repeated requests.
+> **Use streaming**
+>
+> For real-time data, use filtered stream instead of polling.
+> **Monitor headers**
+>
+> Track remaining requests to avoid hitting limits.
+> **Spread requests**
+>
+> Distribute requests across the time window.
 ***
 ## Rate limits vs. billing
 Rate limits and billing are separate:
@@ -336,13 +334,11 @@ Rate limits and billing are separate:
 You can be within rate limits but still incur usage costs, or hit rate limits without additional cost.
 ***
 ## Enterprise rate limits
-Enterprise customers have custom rate limits. Contact your account manager or [apply for Enterprise access](/enterprise/forms/enterprise-api-interest).
+Enterprise customers have custom rate limits. Contact your account manager or [apply for Enterprise access](https://docs.x.com/enterprise/forms/enterprise-api-interest.md).
 ***
 ## Next steps
-<CardGroup cols={2}>
-  <Card title="Error handling" icon="https://mintcdn.com/x-preview/jLbdFJYHCS9a6gmb/icons/xds/icon-warning.svg?fit=max&auto=format&n=jLbdFJYHCS9a6gmb&q=85&s=3760ceda7c43e1ffbd9f8b7ccbf83cca" href="/x-api/fundamentals/response-codes-and-errors" width="24" height="24" data-path="icons/xds/icon-warning.svg">
-    Handle 429 and other errors.
-  </Card>
-    Learn about access levels and features.
-  </Card>
-</CardGroup>
+> **[Error handling](https://docs.x.com/x-api/fundamentals/response-codes-and-errors.md)**
+>
+> Handle 429 and other errors.
+>
+> Learn about access levels and features.

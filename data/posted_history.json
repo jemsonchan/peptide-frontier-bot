@@ -622,6 +622,13 @@
       "topic": "Reconstitution math: a 10 mg vial in 1 mL vs 3 mL gives completely different concentrations",
       "text": "Reconstitution math matters. A 10 mg vial in 1 mL of water means 10 mg/mL. The *same* 10 mg vial in 3 mL of water means 3.33 mg/mL. Completely different concentrations. Always divide peptide mass (mg) by diluent volume (mL) for accurate dosing.",
       "tweet_id": null
+    },
+    {
+      "date": "2026-10-26T19:49:09Z",
+      "pillar": "mechanism",
+      "topic": "TB-500 / thymosin beta-4 and actin regulation in tissue repair",
+      "text": "TB-500 (Thymosin beta-4) helps repair tissues by regulating actin, a protein crucial for cell structure and movement. It promotes cell migration and angiogenesis, supporting wound healing. This mechanism is detailed in 2026 reviews on therapeutic peptides in orthopaedics.",
+      "tweet_id": null
     }
   ]
 }

@@ -629,6 +629,13 @@
       "topic": "TB-500 / thymosin beta-4 and actin regulation in tissue repair",
       "text": "TB-500 (Thymosin beta-4) helps repair tissues by regulating actin, a protein crucial for cell structure and movement. It promotes cell migration and angiogenesis, supporting wound healing. This mechanism is detailed in 2026 reviews on therapeutic peptides in orthopaedics.",
       "tweet_id": null
+    },
+    {
+      "date": "2026-10-27T19:18:54Z",
+      "pillar": "numeracy",
+      "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
+      "text": "A 1,000x dosing error happens when mg is confused with µg (microgram). 1 mg = 1000 µg. This isn't trivial; it's a critical safety risk. Always confirm units and do the math: if a dose is 500 µg, that's 0.5 mg, not 500 mg. Precision is non-negotiable.",
+      "tweet_id": null
     }
   ]
 }

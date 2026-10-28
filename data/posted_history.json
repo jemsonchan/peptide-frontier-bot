@@ -636,6 +636,13 @@
       "topic": "Milligram vs microgram errors: the 1000x mistake and why it matters",
       "text": "A 1,000x dosing error happens when mg is confused with µg (microgram). 1 mg = 1000 µg. This isn't trivial; it's a critical safety risk. Always confirm units and do the math: if a dose is 500 µg, that's 0.5 mg, not 500 mg. Precision is non-negotiable.",
       "tweet_id": null
+    },
+    {
+      "date": "2026-10-28T19:24:51Z",
+      "pillar": "study",
+      "topic": "A recent study on amycretin, mazdutide, or pemvidutide (next-wave multi-pathway compounds)",
+      "text": "Viking's oral VK2735, a dual GIP/GLP-1 agonist, showed promising weight loss in its Phase 2 VENTURE study. Participants achieved up to 13.1% mean body weight reduction. This data, reported in 2024, points to a potential oral option for obesity treatment.",
+      "tweet_id": null
     }
   ]
 }

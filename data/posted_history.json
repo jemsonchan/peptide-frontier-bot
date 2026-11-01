@@ -664,6 +664,13 @@
       "topic": "The shift from single-target to multi-pathway peptides as the defining 2026 trend",
       "text": "The future of metabolic medicine leans multi-pathway. A 2026 review highlights a shift from single-target peptides to combined agonists (GLP-1/GIP/glucagon). This offers broader metabolic impact, shaping the next wave of obesity & diabetes therapies.",
       "tweet_id": null
+    },
+    {
+      "date": "2026-11-01T18:48:59Z",
+      "pillar": "numeracy",
+      "topic": "Why IU (units) are not milligrams, and how insulin-syringe markings mislead people",
+      "text": "Units\" on a syringe are for volume, not mass. A U-100 syringe marks 100 units per mL. So, 50 units is 0.5 mL. It means nothing about mg of peptide. Confusing them can lead to dangerous dosing errors. Always convert to mL for accuracy.",
+      "tweet_id": null
     }
   ]
 }

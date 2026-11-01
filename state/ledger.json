@@ -10,13 +10,9 @@
     "2100747186375905280": "2026-10-12T21:23:54.845527+00:00",
     "2279011389": "2026-08-09T21:56:20.444763+00:00"
   },
-  "billed_today": {
-    "2026-10-31": [
-      "user:me"
-    ]
-  },
+  "billed_today": {},
   "conversation_log": {},
-  "day_spend": "0.001000",
+  "day_spend": "0.000000",
   "entries": [
     {
       "action": "read_mentions",
@@ -2485,9 +2481,9 @@
   ],
   "joined_conversations": {},
   "kind_counts": {},
-  "month": "2026-10",
-  "month_spend": "1.383000",
+  "month": "2026-11",
+  "month_spend": "0.000000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-10-31T21:07:50.425829+00:00"
+  "updated": "2026-11-01T00:11:20.817419+00:00"
 }

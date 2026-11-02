@@ -671,6 +671,13 @@
       "topic": "Why IU (units) are not milligrams, and how insulin-syringe markings mislead people",
       "text": "Units\" on a syringe are for volume, not mass. A U-100 syringe marks 100 units per mL. So, 50 units is 0.5 mL. It means nothing about mg of peptide. Confusing them can lead to dangerous dosing errors. Always convert to mL for accuracy.",
       "tweet_id": null
+    },
+    {
+      "date": "2026-11-02T22:40:19Z",
+      "pillar": "mechanism",
+      "topic": "How GLP-1 receptor agonists slow gastric emptying and signal satiety in the brain",
+      "text": "GLP-1 receptor agonists slow gastric emptying, increasing satiety. They also act in the brain's hypothalamus to reduce appetite by activating specific neuronal pathways. This dual action on gut & brain drives weight loss (2026 reviews).",
+      "tweet_id": null
     }
   ]
 }

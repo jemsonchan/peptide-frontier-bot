@@ -11,7 +11,7 @@
     "2279011389": "2026-08-09T21:56:20.444763+00:00"
   },
   "billed_today": {
-    "2026-11-01": [
+    "2026-11-02": [
       "user:me"
     ]
   },
@@ -2489,13 +2489,21 @@
       "ref": "me",
       "ts": "2026-11-01T00:14:55.147579+00:00",
       "units": 1
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.001",
+      "note": "users/me",
+      "ref": "me",
+      "ts": "2026-11-02T00:55:37.894864+00:00",
+      "units": 1
     }
   ],
   "joined_conversations": {},
   "kind_counts": {},
   "month": "2026-11",
-  "month_spend": "0.001000",
+  "month_spend": "0.002000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-11-01T22:36:49.740443+00:00"
+  "updated": "2026-11-02T00:55:38.035783+00:00"
 }

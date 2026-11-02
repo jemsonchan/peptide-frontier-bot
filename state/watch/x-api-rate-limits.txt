@@ -312,16 +312,16 @@ def make_request_with_backoff(url, headers):
 ```
 ***
 ## Best practices
-> **Cache responses**
+> [card] Cache responses
 >
 > Store results locally to reduce repeated requests.
-> **Use streaming**
+> [card] Use streaming
 >
 > For real-time data, use filtered stream instead of polling.
-> **Monitor headers**
+> [card] Monitor headers
 >
 > Track remaining requests to avoid hitting limits.
-> **Spread requests**
+> [card] Spread requests
 >
 > Distribute requests across the time window.
 ***
@@ -337,7 +337,7 @@ You can be within rate limits but still incur usage costs, or hit rate limits wi
 Enterprise customers have custom rate limits. Contact your account manager or [apply for Enterprise access](https://docs.x.com/enterprise/forms/enterprise-api-interest.md).
 ***
 ## Next steps
-> **[Error handling](https://docs.x.com/x-api/fundamentals/response-codes-and-errors.md)**
+> [card] [Error handling](https://docs.x.com/x-api/fundamentals/response-codes-and-errors.md)
 >
 > Handle 429 and other errors.
 >

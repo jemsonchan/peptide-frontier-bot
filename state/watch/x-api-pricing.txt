@@ -7,15 +7,15 @@ The X API uses **pay-per-usage** pricing. No subscriptions—pay only for what y
 [View pricing & purchase credits](https://developer.x.com/#pricing)
 ***
 ## How it works
-> **Credit-based**
+> [card] Credit-based
 >
 > Purchase credits upfront in the Developer Console. Credits are deducted as you make API requests.
-> **Per-endpoint pricing**
+> [card] Per-endpoint pricing
 >
 > Different endpoints have different costs. View current rates in the Developer Console.
-> **No commitments**
+> [card] No commitments
 >
-> **Real-time tracking**
+> [card] Real-time tracking
 >
 > Monitor usage and costs live in the Developer Console.
 > [!TIP]
@@ -204,9 +204,9 @@ This returns daily Post consumption counts, helping you:
 * Generate usage reports
 ***
 ## Next steps
-> **[Developer Console](https://console.x.com)**
+> [card] [Developer Console](https://console.x.com)
 >
 > Purchase credits and view current pricing.
-> **[Usage API](https://docs.x.com/x-api/usage/introduction.md)**
+> [card] [Usage API](https://docs.x.com/x-api/usage/introduction.md)
 >
 > Monitor usage programmatically.

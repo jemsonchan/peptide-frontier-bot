@@ -11,45 +11,13 @@
     "2279011389": "2026-08-09T21:56:20.444763+00:00"
   },
   "billed_today": {
-    "2026-11-04": [
+    "2026-11-05": [
       "user:me"
     ]
   },
   "conversation_log": {},
   "day_spend": "0.001000",
   "entries": [
-    {
-      "action": "read_mentions",
-      "cost": "0.001",
-      "note": "users/me",
-      "ref": "me",
-      "ts": "2026-08-07T01:03:23.548055+00:00",
-      "units": 1
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.005",
-      "note": "5 mentions",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-07T01:03:23.678046+00:00",
-      "units": 5
-    },
-    {
-      "action": "read_own_timeline",
-      "cost": "0.005",
-      "note": "5 own",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-07T01:03:23.769009+00:00",
-      "units": 5
-    },
-    {
-      "action": "read_search",
-      "cost": "0.050",
-      "note": "10 posts",
-      "ref": "(GLP-1 OR incretin) (study OR \"n=\" OR en",
-      "ts": "2026-08-07T01:03:23.901312+00:00",
-      "units": 10
-    },
     {
       "action": "read_own_timeline",
       "cost": "0.001",
@@ -2457,13 +2425,21 @@
       "ref": "me",
       "ts": "2026-11-04T01:31:35.666301+00:00",
       "units": 1
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.001",
+      "note": "users/me",
+      "ref": "me",
+      "ts": "2026-11-05T01:33:54.342261+00:00",
+      "units": 1
     }
   ],
   "joined_conversations": {},
   "kind_counts": {},
   "month": "2026-11",
-  "month_spend": "0.004000",
+  "month_spend": "0.005000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-11-04T23:45:25.192750+00:00"
+  "updated": "2026-11-05T01:33:54.586410+00:00"
 }

@@ -692,6 +692,13 @@
       "topic": "A recent trial on GLP-1 and cardiovascular or metabolic outcomes",
       "text": "GLP-1 receptor agonists and tirzepatide offer benefits beyond glucose control. A 2026 narrative review highlights their cardiovascular and kidney protective effects, reducing major adverse events. This broad impact reframes metabolic therapy.",
       "tweet_id": null
+    },
+    {
+      "date": "2026-11-05T20:58:41Z",
+      "pillar": "myth",
+      "topic": "Myth: 'more peptide = faster results.' Why dose-response plateaus and side effects rise",
+      "text": "Myth: \"more peptide = faster results.\" Higher doses often hit a therapeutic plateau, where efficacy gain is minimal. But side effects like nausea and vomiting continue to rise significantly (2026 reviews). More isn't always better; it's often just more adverse events.",
+      "tweet_id": null
     }
   ]
 }

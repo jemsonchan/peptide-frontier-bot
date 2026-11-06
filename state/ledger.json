@@ -19,38 +19,6 @@
   "day_spend": "0.001000",
   "entries": [
     {
-      "action": "read_mentions",
-      "cost": "0.001",
-      "note": "users/me",
-      "ref": "me",
-      "ts": "2026-08-08T08:58:04.411962+00:00",
-      "units": 1
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.005",
-      "note": "5 mentions",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-08T08:58:04.517746+00:00",
-      "units": 5
-    },
-    {
-      "action": "read_own_timeline",
-      "cost": "0.005",
-      "note": "5 own",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-08T08:58:04.614031+00:00",
-      "units": 5
-    },
-    {
-      "action": "read_search",
-      "cost": "0.050",
-      "note": "10 posts",
-      "ref": "(GLP-1 OR incretin) (study OR \"n=\" OR en",
-      "ts": "2026-08-08T08:58:04.834269+00:00",
-      "units": 10
-    },
-    {
       "action": "read_own_timeline",
       "cost": "0.001",
       "note": "5 own",
@@ -2441,5 +2409,5 @@
   "month_spend": "0.006000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-11-06T08:28:57.511713+00:00"
+  "updated": "2026-11-06T15:53:48.153252+00:00"
 }

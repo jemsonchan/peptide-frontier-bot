@@ -21,30 +21,6 @@
       "cost": "0.001",
       "note": "users/me",
       "ref": "me",
-      "ts": "2026-08-13T09:32:10.213270+00:00",
-      "units": 1
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.005",
-      "note": "5 mentions",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-13T09:32:10.369894+00:00",
-      "units": 5
-    },
-    {
-      "action": "read_search",
-      "cost": "0.050",
-      "note": "10 posts",
-      "ref": "(GLP-1 OR incretin) (study OR \"n=\" OR en",
-      "ts": "2026-08-13T09:32:10.504633+00:00",
-      "units": 10
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.001",
-      "note": "users/me",
-      "ref": "me",
       "ts": "2026-08-14T09:19:32.897914+00:00",
       "units": 1
     },
@@ -2295,5 +2271,5 @@
   "month_spend": "0.011000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-11-11T07:32:10.271857+00:00"
+  "updated": "2026-11-11T15:36:22.387335+00:00"
 }

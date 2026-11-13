@@ -21,30 +21,6 @@
       "cost": "0.001",
       "note": "users/me",
       "ref": "me",
-      "ts": "2026-08-15T08:43:59.671103+00:00",
-      "units": 1
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.005",
-      "note": "5 mentions",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-15T08:43:59.804375+00:00",
-      "units": 5
-    },
-    {
-      "action": "read_search",
-      "cost": "0.050",
-      "note": "10 posts",
-      "ref": "(retatrutide OR tirzepatide OR semagluti",
-      "ts": "2026-08-15T08:43:59.952991+00:00",
-      "units": 10
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.001",
-      "note": "users/me",
-      "ref": "me",
       "ts": "2026-08-16T08:45:25.379571+00:00",
       "units": 1
     },
@@ -2255,5 +2231,5 @@
   "month_spend": "0.013000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-11-13T07:15:08.873511+00:00"
+  "updated": "2026-11-13T15:29:22.765202+00:00"
 }

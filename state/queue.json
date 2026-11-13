@@ -1,36 +1,13 @@
 {
   "counts": {
     "approved": 0,
-    "expired": 4,
+    "expired": 3,
     "failed": 0,
     "pending": 0,
     "published": 0,
     "rejected": 0
   },
   "drafts": [
-    {
-      "action": "reply",
-      "conversation_id": "2110100465983635949",
-      "created": "2026-10-14T17:35:41.971481+00:00",
-      "decided_at": "2026-10-15T06:25:19.964949+00:00",
-      "decided_by": "",
-      "decided_via": "",
-      "github_issue": 20,
-      "id": "ac86c3aa96c2",
-      "kind": "mention",
-      "nostr_event": "",
-      "nostr_relays_ok": 0,
-      "original_text": "",
-      "published_id": "",
-      "reject_reason": "",
-      "score": 5.34,
-      "status": "expired",
-      "target_author": "Bbygixxer8",
-      "target_id": "2110134734403563610",
-      "target_text": "@PeptideFrontier That sealed-vs-mixed clock difference is the whole game. Free shelf-life lookup for 72 peptides if useful: https://t.co/0FqBDTznhV",
-      "telegram_message": 0,
-      "text": "Benzyl alcohol, typically at 0.9% v/v in bacteriostatic water, acts by denaturing proteins and disrupting bacterial cell membranes. This mechanism provides broad-spectrum antimicrobial activity, validated in USP <51> antimicrobial effectiveness testing."
-    },
     {
       "action": "reply",
       "conversation_id": "2110100465983635949",
@@ -101,5 +78,5 @@
       "text": "Benzyl alcohol's bacteriostatic effect is concentration-dependent, typically 0.9% in BW. Higher concentrations can be irritating, while lower ones may not fully inhibit growth, impacting the 4-week stability window."
     }
   ],
-  "updated": "2026-11-13T16:17:07.179379+00:00"
+  "updated": "2026-11-13T20:00:16.900721+00:00"
 }

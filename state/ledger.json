@@ -21,46 +21,6 @@
       "cost": "0.001",
       "note": "users/me",
       "ref": "me",
-      "ts": "2026-08-17T08:59:01.355143+00:00",
-      "units": 1
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.004",
-      "note": "4 mentions",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-17T08:59:01.521110+00:00",
-      "units": 4
-    },
-    {
-      "action": "read_search",
-      "cost": "0.050",
-      "note": "10 posts",
-      "ref": "(\"BPC-157\" OR \"TB-500\" OR ipamorelin) -i",
-      "ts": "2026-08-17T08:59:01.687014+00:00",
-      "units": 10
-    },
-    {
-      "action": "read_own_timeline",
-      "cost": "0.020",
-      "note": "20 own",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-17T10:01:33.599068+00:00",
-      "units": 20
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.001",
-      "note": "5 mentions",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-17T13:25:06.141254+00:00",
-      "units": 1
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.001",
-      "note": "users/me",
-      "ref": "me",
       "ts": "2026-08-18T08:52:13.273580+00:00",
       "units": 1
     },
@@ -2223,5 +2183,5 @@
   "month_spend": "0.015000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-11-15T06:09:36.590225+00:00"
+  "updated": "2026-11-15T14:05:10.053200+00:00"
 }

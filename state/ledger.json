@@ -19,14 +19,6 @@
     {
       "action": "read_mentions",
       "cost": "0.001",
-      "note": "5 mentions",
-      "ref": "2072968799972728832",
-      "ts": "2026-08-18T17:39:23.799100+00:00",
-      "units": 1
-    },
-    {
-      "action": "read_mentions",
-      "cost": "0.001",
       "note": "users/me",
       "ref": "me",
       "ts": "2026-08-19T08:52:52.541414+00:00",
@@ -2167,5 +2159,5 @@
   "month_spend": "0.016000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-11-16T13:47:52.522139+00:00"
+  "updated": "2026-11-16T18:28:24.857513+00:00"
 }

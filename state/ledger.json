@@ -8,9 +8,13 @@
     "2095495937347198976": "2026-09-24T23:56:07.968255+00:00",
     "2100747186375905280": "2026-10-12T21:23:54.845527+00:00"
   },
-  "billed_today": {},
+  "billed_today": {
+    "2026-11-19": [
+      "user:me"
+    ]
+  },
   "conversation_log": {},
-  "day_spend": "0.000000",
+  "day_spend": "0.001000",
   "entries": [
     {
       "action": "read_mentions",
@@ -2107,13 +2111,21 @@
       "ref": "me",
       "ts": "2026-11-18T02:59:18.947475+00:00",
       "units": 1
+    },
+    {
+      "action": "read_mentions",
+      "cost": "0.001",
+      "note": "users/me",
+      "ref": "me",
+      "ts": "2026-11-19T02:41:39.288591+00:00",
+      "units": 1
     }
   ],
   "joined_conversations": {},
   "kind_counts": {},
   "month": "2026-11",
-  "month_spend": "0.018000",
+  "month_spend": "0.019000",
   "pause_reason": "",
   "paused_until": null,
-  "updated": "2026-11-19T02:38:49.833424+00:00"
+  "updated": "2026-11-19T02:41:39.439185+00:00"
 }

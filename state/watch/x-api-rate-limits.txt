@@ -224,7 +224,7 @@ View the rate limit for each endpoint below. You can also see these limits in th
 | :- | :- | :- | :- |
 | GET | `/2/usage/tweets` | 50/15min | — |
 ***
-### Trends (2 endpoints)
+### Trends (3 endpoints)
 #### Personalized Trends
 | Method | Endpoint | Per App | Per User |
 | :- | :- | :- | :- |
@@ -233,6 +233,10 @@ View the rate limit for each endpoint below. You can also see these limits in th
 | Method | Endpoint | Per App | Per User |
 | :- | :- | :- | :- |
 | GET | `/2/trends/by/woeid/:id` | 75/15min | — |
+#### Trend Locations
+| Method | Endpoint | Per App | Per User |
+| :- | :- | :- | :- |
+| GET | `/2/trends/locations` | 75/15min | 75/15min |
 ***
 ### Communities (2 endpoints)
 | Method | Endpoint | Per App | Per User | Notes |
